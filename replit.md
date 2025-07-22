@@ -40,13 +40,14 @@ Preferred communication style: Simple, everyday language.
 - **Sidebar**: Provides quick-start questions and topic navigation
 
 ### AI Integration
-- **Modular AI Functions**: Separate specialized functions for each response section
+- **Sequential Generation**: Introduction first, then other sections build upon it to avoid repetition
 - **Overarching Style Guide**: Universal storytelling approach emphasizing vivid descriptions and accessibility
 - **Summary-Based Introduction**: Introduction serves as captivating gateway into Dunhuang's world
+- **Distinct Section Content**: Each section focuses exclusively on its domain without overlap
 - **Storytelling Focus**: Rich, descriptive language that brings ancient Dunhuang to life
 - **Accessibility-First**: Designed for users with no prior knowledge, using engaging analogies
 - **Cultural Immersion**: Transport readers to ancient caves through sensory details and narratives
-- **Parallel Processing**: All sections generated simultaneously for optimal performance
+- **Concise Follow-ups**: Short, specific questions (8-10 words) based on section content
 - **Multi-language Support**: Supports English and Chinese conversations
 
 ### UI Components

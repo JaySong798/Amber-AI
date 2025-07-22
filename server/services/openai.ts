@@ -72,31 +72,33 @@ Write as if guiding a curious traveler into the magical world of ancient Dunhuan
   return response.choices[0].message.content || "";
 }
 
-async function generateArtisticFeatures(userMessage: string, language: string): Promise<Array<{title: string, description: string}>> {
+async function generateArtisticFeatures(introduction: string, language: string): Promise<Array<{title: string, description: string}>> {
   const prompt = `${DUNHUANG_STYLE_GUIDE}
 
-Bring the artistic wonders of Dunhuang to life through detailed, visually rich descriptions. Focus on concrete artistic elements that readers can visualize and understand, even without prior art knowledge.
+Based on this introduction: "${introduction}"
+
+Generate ONLY artistic and visual details that expand on the artistic elements mentioned in the introduction. Focus exclusively on concrete visual elements, techniques, and artistic characteristics. Do not repeat general information about locations, time periods, or cultural background.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Paint vivid pictures of artistic details:
-- Visual painting techniques: Describe how ancient brushes moved across walls
-- Color palettes: Name specific colors and explain their sources and meanings
-- Compositions: Help readers see how elements are arranged in space
-- Materials: Describe textures, tools, and craftsmanship methods
-- Symbols: Explain iconography through storytelling and cultural context
-- Patterns: Describe decorative elements with sensory detail
+Focus ONLY on visual artistic details:
+- Specific painting techniques and brushwork methods
+- Exact color palettes and pigment materials used
+- Detailed compositional arrangements and layouts
+- Sculptural techniques and carving methods
+- Iconographic symbols and their visual representations
+- Decorative patterns and artistic motifs
 
-User's question: ${userMessage}
+Avoid mentioning: historical periods, dynasties, cultural background, religious context, or general introductions.
 
-Write as if describing masterpieces to someone standing before them. Use rich, descriptive language that helps readers visualize these ancient artworks.
+Write as if examining the artwork up close, describing only what the eyes can see.
 
 Provide a JSON object with this exact format:
 {
   "features": [
-    {"title": "Feature name", "description": "Vivid, detailed description"},
-    {"title": "Feature name", "description": "Vivid, detailed description"},
-    {"title": "Feature name", "description": "Vivid, detailed description"}
+    {"title": "Specific artistic technique", "description": "Pure visual description"},
+    {"title": "Specific artistic technique", "description": "Pure visual description"},
+    {"title": "Specific artistic technique", "description": "Pure visual description"}
   ]
 }`;
 
@@ -120,25 +122,26 @@ Provide a JSON object with this exact format:
   }
 }
 
-async function generateHistoricalSignificance(userMessage: string, language: string): Promise<string> {
+async function generateHistoricalSignificance(introduction: string, language: string): Promise<string> {
   const prompt = `${DUNHUANG_STYLE_GUIDE}
 
-Transport readers through time to understand the historical tapestry of Dunhuang. Tell the story of how this desert oasis became a crossroads of civilizations.
+Based on this introduction: "${introduction}"
+
+Generate ONLY historical context and chronological details that expand on the historical elements mentioned in the introduction. Focus exclusively on dates, dynasties, events, and historical developments. Do not repeat artistic details, cultural practices, or general background information.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Weave together historical narratives:
-- Dynasties and time periods: Bring ancient rulers and their courts to life
-- Construction phases: Describe the sounds of chisels carving caves
-- Silk Road routes: Paint pictures of caravans crossing vast deserts
-- Political patronage: Tell stories of emperors and nobles supporting the arts
-- Historical events: Narrate dramatic moments that shaped Dunhuang's fate
-- Archaeological discoveries: Share the excitement of modern rediscoveries
-- Historical figures: Introduce monks, artists, and pilgrims as real people
+Focus ONLY on historical facts and chronology:
+- Specific dynasties and exact time periods
+- Construction dates and building phases
+- Political events and imperial patronage
+- Archaeological discoveries and documentation
+- Historical figures and their specific contributions
+- Timeline of development and changes
 
-User's question: ${userMessage}
+Avoid mentioning: artistic techniques, visual descriptions, religious practices, or cultural meanings.
 
-Write as if telling the epic story of Dunhuang's place in history to someone around a campfire. Make the past come alive through vivid storytelling.
+Write as if creating a historical timeline, focusing purely on when, who, and what happened.
 
 Provide only the historical significance text (no JSON, no additional formatting).`;
 
@@ -152,26 +155,27 @@ Provide only the historical significance text (no JSON, no additional formatting
   return response.choices[0].message.content || "";
 }
 
-async function generateCulturalBackground(userMessage: string, language: string): Promise<string> {
+async function generateCulturalBackground(introduction: string, language: string): Promise<string> {
   const prompt = `${DUNHUANG_STYLE_GUIDE}
 
-Illuminate the rich spiritual and cultural world of Dunhuang. Help readers understand the beliefs, practices, and cultural exchanges that gave these caves their profound meaning.
+Based on this introduction: "${introduction}"
+
+Generate ONLY cultural and religious context that expands on the spiritual elements mentioned in the introduction. Focus exclusively on beliefs, practices, and spiritual meanings. Do not repeat historical dates, artistic techniques, or general background information.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Bring cultural traditions to life:
-- Buddhist teachings: Explain complex concepts through simple stories and analogies
-- Religious ceremonies: Describe incense-filled caves and chanting monks
-- Symbolic meanings: Decode artistic symbols through engaging explanations
-- Cultural fusion: Tell stories of how different traditions blended together
-- Monastic life: Paint pictures of daily life in the desert monastery
-- Deities and figures: Introduce spiritual beings as characters with personalities
-- Spiritual practices: Describe meditation, pilgrimage, and devotional activities
-- Folk traditions: Share how local customs merged with religious practices
+Focus ONLY on cultural and spiritual aspects:
+- Buddhist teachings and specific doctrines
+- Religious ceremonies and ritual practices
+- Spiritual symbolism and sacred meanings
+- Monastic life and religious communities
+- Pilgrimage traditions and devotional practices
+- Cultural fusion and religious syncretism
+- Sacred stories and spiritual narratives
 
-User's question: ${userMessage}
+Avoid mentioning: specific dates, dynasties, artistic techniques, or visual descriptions.
 
-Write as if guiding someone through a living spiritual community, making ancient beliefs and practices accessible and meaningful to modern readers.
+Write as if explaining the spiritual heart and soul behind the subject, focusing purely on beliefs and practices.
 
 Provide only the cultural background text (no JSON, no additional formatting).`;
 
@@ -185,31 +189,33 @@ Provide only the cultural background text (no JSON, no additional formatting).`;
   return response.choices[0].message.content || "";
 }
 
-async function generateFollowUpQuestions(userMessage: string, language: string): Promise<Array<{question: string, description: string}>> {
+async function generateFollowUpQuestions(sectionsContent: any, language: string): Promise<Array<{question: string, description: string}>> {
   const prompt = `${DUNHUANG_STYLE_GUIDE}
 
-Create inviting pathways for continued exploration of Dunhuang's wonders. Generate questions that spark curiosity and guide readers toward fascinating discoveries.
+Based on these sections:
+Introduction: "${sectionsContent.introduction}"
+Artistic Features: "${JSON.stringify(sectionsContent.artistic_features)}"
+Historical Context: "${sectionsContent.historical_significance}"
+Cultural Background: "${sectionsContent.cultural_background}"
+
+Generate short, concise follow-up questions (maximum 8-10 words each) that build directly from the specific content covered in these sections.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Craft engaging exploration paths:
-- Artistic discoveries: Questions about related techniques, styles, or visual elements
-- Historical connections: Inquiries about time periods, rulers, or cultural influences
-- Cultural mysteries: Questions about meanings, traditions, or spiritual practices
-- Comparative exploration: How does this relate to other caves, periods, or cultures?
-- Broader journeys: Connections to Silk Road trade, Buddhist teachings, or regional art
-- Personal connections: How might ancient practices relate to modern experiences?
+Create 3-4 brief questions covering:
+- One artistic question based on the artistic features mentioned
+- One historical question based on the historical context provided
+- One cultural question based on the cultural background covered
+- One comparative or related exploration question
 
-User's original question: ${userMessage}
-
-Write questions as if suggesting exciting adventures to a curious traveler. Make each question feel like an invitation to discover something wonderful.
+Keep questions short and specific. Descriptions should be equally concise (maximum 15 words).
 
 Provide a JSON object with this exact format:
 {
   "questions": [
-    {"question": "Engaging follow-up question", "description": "Enticing hint or context"},
-    {"question": "Engaging follow-up question", "description": "Enticing hint or context"},
-    {"question": "Engaging follow-up question", "description": "Enticing hint or context"}
+    {"question": "Short specific question?", "description": "Brief hint"},
+    {"question": "Short specific question?", "description": "Brief hint"},
+    {"question": "Short specific question?", "description": "Brief hint"}
   ]
 }`;
 
@@ -238,26 +244,35 @@ export async function generateDunhuangResponse(
   language: string = "en"
 ): Promise<DunhuangResponse> {
   try {
-    // Generate all sections in parallel for better performance
+    // First generate the introduction
+    const introduction = await generateIntroduction(userMessage, language);
+    
+    // Then generate other sections based on the introduction
     const [
+      artistic_features,
+      historical_significance,
+      cultural_background
+    ] = await Promise.all([
+      generateArtisticFeatures(introduction, language),
+      generateHistoricalSignificance(introduction, language),
+      generateCulturalBackground(introduction, language)
+    ]);
+
+    // Finally generate follow-up questions based on all sections
+    const sectionsContent = {
       introduction,
       artistic_features,
       historical_significance,
-      cultural_background,
-      follow_up_questions
-    ] = await Promise.all([
-      generateIntroduction(userMessage, language),
-      generateArtisticFeatures(userMessage, language),
-      generateHistoricalSignificance(userMessage, language),
-      generateCulturalBackground(userMessage, language),
-      generateFollowUpQuestions(userMessage, language)
-    ]);
+      cultural_background
+    };
+    
+    const follow_up_questions = await generateFollowUpQuestions(sectionsContent, language);
 
     const normalizedResponse: DunhuangResponse = {
       introduction: introduction || "Welcome to exploring Dunhuang culture.",
       artistic_features: Array.isArray(artistic_features) ? artistic_features : [],
-      historical_significance: historical_significance || "Dunhuang holds significant historical importance in Chinese culture.",
-      cultural_background: cultural_background || "Dunhuang represents a rich tapestry of cultural traditions.",
+      historical_significance: historical_significance || "Historical context will be provided.",
+      cultural_background: cultural_background || "Cultural context will be provided.",
       follow_up_questions: Array.isArray(follow_up_questions) ? follow_up_questions : []
     };
 
