@@ -32,9 +32,9 @@ const topics: Topic[] = [
 
 export function Sidebar({ onQuestionClick }: SidebarProps) {
   return (
-    <aside className="w-full lg:w-80 bg-card/90 backdrop-blur-sm border-r border-imperial-gold-200 p-6 lg:sticky lg:top-16 lg:h-screen lg:overflow-y-auto">
+    <aside className="w-full lg:w-80 bg-card/90 backdrop-blur-sm border-r border-cave-brown-300 p-6 lg:sticky lg:top-16 lg:h-screen lg:overflow-y-auto">
       {/* Welcome Section */}
-      <div className="mb-8 p-6 bg-imperial-gold-100/60 border border-imperial-gold-200 rounded-xl phoenix-pattern section-card">
+      <div className="mb-8 p-6 bg-imperial-gold-100/60 border border-cave-brown-300 rounded-xl phoenix-pattern section-card">
         <h2 className="text-lg font-semibold text-deep-bronze-800 mb-2">Welcome to Dunhuang</h2>
         <p className="text-sm text-deep-bronze-600 mb-4 leading-relaxed">
           Explore the rich cultural heritage of Dunhuang through AI-powered conversations about art, history, and spiritual legacy.
@@ -58,7 +58,7 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
             <Button
               key={index}
               variant="ghost"
-              className="w-full text-left p-3 bg-warm-cream-200/40 hover:bg-warm-cream-300/60 hover:border-imperial-gold-300 rounded-lg transition-all duration-200 suggestion-card h-auto justify-start border border-imperial-gold-200/50"
+              className="w-full text-left p-3 bg-warm-cream-200/40 hover:bg-warm-cream-300/60 hover:border-cave-brown-400 rounded-lg transition-all duration-200 suggestion-card h-auto justify-start border border-cave-brown-300"
               onClick={() => onQuestionClick(item.question)}
             >
               <div>
@@ -84,10 +84,10 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
               size="sm"
               className={`px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-all duration-200 h-auto ${
                 index % 3 === 0 
-                  ? "bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-imperial-gold-300/50 hover:border-imperial-gold-400" 
+                  ? "bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-cave-brown-300 hover:border-cave-brown-400" 
                   : index % 3 === 1
-                  ? "bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-imperial-gold-200/50 hover:border-imperial-gold-300"
-                  : "bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-turquoise-blue-200/50 hover:border-turquoise-blue-300"
+                  ? "bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-cave-brown-300 hover:border-cave-brown-400"
+                  : "bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-cave-brown-300 hover:border-cave-brown-400"
               }`}
               onClick={() => onQuestionClick(topic.question)}
             >

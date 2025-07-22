@@ -27,7 +27,7 @@ export function Message({ message, onQuestionClick }: MessageProps) {
       <div className="chat-message">
         <div className="flex items-start space-x-3 justify-end">
           <div className="flex-1 flex flex-col items-end">
-            <div className="bg-turquoise-blue-500 text-white rounded-lg p-4 max-w-md shadow-sm border border-turquoise-blue-400/20">
+            <div className="bg-turquoise-blue-500 text-white rounded-lg p-4 max-w-md shadow-sm border border-cave-brown-300">
               <p className="text-sm break-words leading-relaxed">{message.content}</p>
             </div>
             <span className="text-xs text-deep-bronze-500 mt-1 font-medium">You • {formatTime(message.timestamp)}</span>
@@ -55,7 +55,7 @@ export function Message({ message, onQuestionClick }: MessageProps) {
               onQuestionClick={onQuestionClick}
             />
           ) : (
-            <div className="bg-warm-cream-100/80 border border-imperial-gold-200 rounded-lg p-4 section-card">
+            <div className="bg-warm-cream-100/80 border border-cave-brown-300 rounded-lg p-4 section-card">
               <p className="text-sm text-deep-bronze-700 break-words leading-relaxed">{message.content}</p>
             </div>
           )}
@@ -78,7 +78,7 @@ function StructuredResponseComponent({
   return (
     <div className="space-y-4">
       {/* Introduction */}
-      <div className="bg-warm-cream-100/70 border border-imperial-gold-200 rounded-lg p-4 section-card">
+      <div className="bg-warm-cream-100/70 border border-cave-brown-300 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
           <Info className="w-4 h-4 text-imperial-gold-600 mr-2" />
           <h4 className="font-semibold text-imperial-gold-700">Introduction</h4>
@@ -87,7 +87,7 @@ function StructuredResponseComponent({
       </div>
 
       {/* Artistic Features */}
-      <div className="bg-turquoise-blue-50/80 border border-turquoise-blue-200 rounded-lg p-4 section-card">
+      <div className="bg-turquoise-blue-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
           <Palette className="w-4 h-4 text-turquoise-blue-600 mr-2" />
           <h4 className="font-semibold text-turquoise-blue-700">Artistic Features</h4>
@@ -103,7 +103,7 @@ function StructuredResponseComponent({
       </div>
 
       {/* Historical Significance */}
-      <div className="bg-deep-bronze-50/80 border border-deep-bronze-200 rounded-lg p-4 section-card">
+      <div className="bg-deep-bronze-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
           <Landmark className="w-4 h-4 text-deep-bronze-600 mr-2" />
           <h4 className="font-semibold text-deep-bronze-700">Historical Significance</h4>
@@ -112,7 +112,7 @@ function StructuredResponseComponent({
       </div>
 
       {/* Cultural Background */}
-      <div className="bg-imperial-gold-50/80 border border-imperial-gold-200 rounded-lg p-4 section-card">
+      <div className="bg-imperial-gold-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
           <MessageSquare className="w-4 h-4 text-imperial-gold-600 mr-2" />
           <h4 className="font-semibold text-imperial-gold-700">Cultural & Religious Background</h4>
@@ -122,7 +122,7 @@ function StructuredResponseComponent({
 
       {/* Follow-up Questions */}
       {response.follow_up_questions.length > 0 && (
-        <div className="bg-turquoise-blue-50/60 border border-turquoise-blue-200 rounded-lg p-4 section-card phoenix-pattern">
+        <div className="bg-turquoise-blue-50/60 border border-cave-brown-300 rounded-lg p-4 section-card phoenix-pattern">
           <div className="flex items-center mb-3">
             <MessageSquare className="w-4 h-4 text-turquoise-blue-600 mr-2" />
             <h4 className="font-semibold text-turquoise-blue-700">Explore Further</h4>
@@ -132,7 +132,7 @@ function StructuredResponseComponent({
               <Button
                 key={index}
                 variant="ghost"
-                className="block w-full text-left p-3 bg-turquoise-blue-50/40 border border-turquoise-blue-200/50 rounded-lg hover:bg-turquoise-blue-100/60 hover:border-turquoise-blue-300 transition-all duration-200 suggestion-card h-auto"
+                className="block w-full text-left p-3 bg-turquoise-blue-50/40 border border-cave-brown-200 rounded-lg hover:bg-turquoise-blue-100/60 hover:border-cave-brown-400 transition-all duration-200 suggestion-card h-auto"
                 onClick={() => onQuestionClick(item.question)}
               >
                 <span className="text-sm font-medium text-turquoise-blue-800 block">{item.question}</span>

@@ -123,7 +123,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
               </svg>
             </div>
             <div className="flex-1">
-              <div className="bg-warm-cream-100/80 border border-imperial-gold-200 rounded-lg p-4 section-card">
+              <div className="bg-warm-cream-100/80 border border-cave-brown-300 rounded-lg p-4 section-card">
                 <div className="break-words leading-relaxed">
                   <p className="text-sm text-foreground font-medium">Welcome! I'm your AI guide to the magnificent world of Dunhuang. I can help you explore:</p>
                   <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
@@ -175,7 +175,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
       </div>
       
       {/* Chat Input Area */}
-      <div className="border-t border-imperial-gold-200 p-4 lg:p-6 bg-card/95 backdrop-blur-sm">
+      <div className="border-t border-cave-brown-300 p-4 lg:p-6 bg-card/95 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="flex items-end space-x-3">
             <div className="flex-1">
@@ -185,7 +185,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
                 rows={1}
-                className="resize-none min-h-[48px] max-h-[120px] border-imperial-gold-300 bg-warm-cream-100/50 text-deep-bronze-800 placeholder:text-deep-bronze-500 focus:ring-2 focus:ring-turquoise-blue-500 focus:border-turquoise-blue-500"
+                className="resize-none min-h-[48px] max-h-[120px] border-cave-brown-400 bg-warm-cream-100/50 text-deep-bronze-800 placeholder:text-deep-bronze-500 focus:ring-2 focus:ring-cave-brown-500 focus:border-cave-brown-500"
                 placeholder="Ask me about Dunhuang art, history, or culture..."
                 disabled={sendMessage.isPending}
               />
@@ -193,7 +193,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button 
               type="submit" 
               disabled={!input.trim() || sendMessage.isPending}
-              className="bg-turquoise-blue-500 hover:bg-turquoise-blue-600 text-white px-6 py-3 shadow-sm focus:ring-2 focus:ring-turquoise-blue-500 focus:ring-offset-2"
+              className="bg-turquoise-blue-500 hover:bg-turquoise-blue-600 text-white px-6 py-3 shadow-sm focus:ring-2 focus:ring-cave-brown-500 focus:ring-offset-2"
             >
               <Send className="w-4 h-4 mr-2 sm:mr-0" />
               <span className="hidden sm:inline">Send</span>
@@ -205,7 +205,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-imperial-gold-300/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
+              className="px-3 py-1 bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
               onClick={() => handleQuestionClick("Explain Buddhist symbolism in Cave 17")}
             >
               Cave 17 symbolism
@@ -213,7 +213,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-imperial-gold-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
+              className="px-3 py-1 bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
               onClick={() => handleQuestionClick("Compare Tang and Song dynasty art styles")}
             >
               Tang vs Song styles
@@ -221,7 +221,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-turquoise-blue-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
+              className="px-3 py-1 bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
               onClick={() => handleQuestionClick("What is the Library Cave discovery?")}
             >
               Library Cave

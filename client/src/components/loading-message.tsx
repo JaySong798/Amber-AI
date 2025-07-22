@@ -8,7 +8,7 @@ export function LoadingMessage() {
           <Bot className="w-4 h-4 text-white" />
         </div>
         <div className="flex-1">
-          <div className="bg-warm-cream-100/80 border border-imperial-gold-200 rounded-lg p-4 section-card">
+          <div className="bg-warm-cream-100/80 border border-cave-brown-300 rounded-lg p-4 section-card">
             <div className="flex items-center space-x-2">
               <span className="text-sm text-deep-bronze-700 font-medium">Exploring Dunhuang archives</span>
               <div className="loading-dots flex space-x-1">
