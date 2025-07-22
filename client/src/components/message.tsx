@@ -76,69 +76,79 @@ function StructuredResponseComponent({
   onQuestionClick: (question: string) => void;
 }) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {/* Introduction */}
-      <div className="bg-warm-cream-100/70 border border-cave-brown-300 rounded-lg p-4 section-card">
-        <div className="flex items-center mb-3">
-          <Info className="w-4 h-4 text-imperial-gold-600 mr-2" />
-          <h4 className="font-semibold text-imperial-gold-700">Introduction</h4>
+      <div className="response-introduction">
+        <div className="response-section-header">
+          <Info className="response-section-icon text-imperial-gold-600" />
+          <h4 className="response-section-title text-imperial-gold-700">Introduction</h4>
         </div>
-        <p className="text-sm text-imperial-gold-800 break-words leading-relaxed">{response.introduction}</p>
+        <div className="response-section-content">
+          <p className="text-imperial-gold-800 break-words">{response.introduction}</p>
+        </div>
       </div>
 
       {/* Artistic Features */}
-      <div className="bg-cave-brown-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
-        <div className="flex items-center mb-3">
-          <Palette className="w-4 h-4 text-cave-brown-600 mr-2" />
-          <h4 className="font-semibold text-cave-brown-700">Artistic Features</h4>
+      <div className="response-artistic-features">
+        <div className="response-section-header">
+          <Palette className="response-section-icon text-cave-brown-600" />
+          <h4 className="response-section-title text-cave-brown-700">Artistic Features</h4>
         </div>
-        <div className="space-y-3 text-sm text-cave-brown-800">
-          {response.artistic_features.map((feature, index) => (
-            <div key={index} className="flex items-start space-x-2">
-              <span className="font-medium text-cave-brown-700 min-w-0">{feature.title}:</span>
-              <span className="break-words leading-relaxed">{feature.description}</span>
-            </div>
-          ))}
+        <div className="response-section-content">
+          <div className="space-y-4 text-cave-brown-800">
+            {response.artistic_features.map((feature, index) => (
+              <div key={index} className="bg-cave-brown-100/40 rounded-lg p-3 border border-cave-brown-200">
+                <h5 className="font-semibold text-cave-brown-700 mb-2">{feature.title}</h5>
+                <p className="break-words">{feature.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Historical Significance */}
-      <div className="bg-deep-bronze-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
-        <div className="flex items-center mb-3">
-          <Landmark className="w-4 h-4 text-deep-bronze-600 mr-2" />
-          <h4 className="font-semibold text-deep-bronze-700">Historical Significance</h4>
+      <div className="response-historical-significance">
+        <div className="response-section-header">
+          <Landmark className="response-section-icon text-deep-bronze-600" />
+          <h4 className="response-section-title text-deep-bronze-700">Historical Significance</h4>
         </div>
-        <p className="text-sm text-deep-bronze-800 break-words leading-relaxed">{response.historical_significance}</p>
+        <div className="response-section-content">
+          <p className="text-deep-bronze-800 break-words">{response.historical_significance}</p>
+        </div>
       </div>
 
       {/* Cultural Background */}
-      <div className="bg-imperial-gold-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
-        <div className="flex items-center mb-3">
-          <MessageSquare className="w-4 h-4 text-imperial-gold-600 mr-2" />
-          <h4 className="font-semibold text-imperial-gold-700">Cultural & Religious Background</h4>
+      <div className="response-cultural-background">
+        <div className="response-section-header">
+          <MessageSquare className="response-section-icon text-imperial-gold-600" />
+          <h4 className="response-section-title text-imperial-gold-700">Cultural & Religious Background</h4>
         </div>
-        <p className="text-sm text-imperial-gold-800 break-words leading-relaxed">{response.cultural_background}</p>
+        <div className="response-section-content">
+          <p className="text-imperial-gold-800 break-words">{response.cultural_background}</p>
+        </div>
       </div>
 
       {/* Follow-up Questions */}
       {response.follow_up_questions.length > 0 && (
-        <div className="bg-cave-brown-50/60 border border-cave-brown-300 rounded-lg p-4 section-card phoenix-pattern">
-          <div className="flex items-center mb-3">
-            <MessageSquare className="w-4 h-4 text-cave-brown-600 mr-2" />
-            <h4 className="font-semibold text-cave-brown-700">Explore Further</h4>
+        <div className="response-follow-up-questions">
+          <div className="response-section-header">
+            <MessageSquare className="response-section-icon text-turquoise-blue-600" />
+            <h4 className="response-section-title text-turquoise-blue-700">Explore Further</h4>
           </div>
-          <div className="space-y-2">
-            {response.follow_up_questions.map((item, index) => (
-              <Button
-                key={index}
-                variant="ghost"
-                className="block w-full text-left p-3 bg-cave-brown-50/40 border border-cave-brown-200 rounded-lg hover:bg-cave-brown-100/60 hover:border-cave-brown-400 transition-all duration-200 suggestion-card h-auto"
-                onClick={() => onQuestionClick(item.question)}
-              >
-                <span className="text-sm font-medium text-cave-brown-800 block">{item.question}</span>
-                <span className="text-xs text-cave-brown-700 mt-1 block">{item.description}</span>
-              </Button>
-            ))}
+          <div className="response-section-content">
+            <div className="space-y-3">
+              {response.follow_up_questions.map((item, index) => (
+                <Button
+                  key={index}
+                  variant="ghost"
+                  className="block w-full text-left p-4 bg-turquoise-blue-100/40 border border-turquoise-blue-200 rounded-lg hover:bg-turquoise-blue-100/60 hover:border-turquoise-blue-400 transition-all duration-200 h-auto"
+                  onClick={() => onQuestionClick(item.question)}
+                >
+                  <span className="text-sm font-semibold text-turquoise-blue-800 block">{item.question}</span>
+                  <span className="text-xs text-turquoise-blue-700 mt-2 block opacity-80">{item.description}</span>
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       )}
