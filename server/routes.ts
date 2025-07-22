@@ -1,16 +1,20 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
-import { chatRequestSchema, chatResponseSchema } from "@shared/schema";
 import { generateDunhuangResponse } from "./services/openai";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Chat endpoint for Dunhuang cultural exploration
   app.post("/api/chat", async (req, res) => {
     try {
-      // Validate request body
-      const validatedData = chatRequestSchema.parse(req.body);
-      const { message, language } = validatedData;
+      // Basic request validation
+      const { message, language = "en" } = req.body;
+      
+      if (!message || typeof message !== 'string') {
+        return res.status(400).json({ 
+          message: "Message is required and must be a string" 
+        });
+      }
 
       // Generate AI response
       const aiResponse = await generateDunhuangResponse(message, language);
@@ -18,24 +22,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create response object
       const response = {
         id: Date.now().toString(),
-        content: aiResponse.introduction, // Fallback content
+        content: aiResponse.introduction,
         structured_response: aiResponse
       };
-
-      // Validate response before sending
-      const validatedResponse = chatResponseSchema.parse(response);
       
-      res.json(validatedResponse);
+      res.json(response);
     } catch (error) {
       console.error("Chat API error:", error);
       
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({ 
-          message: "Invalid request format",
-          errors: error.errors 
-        });
-      }
-
       if (error instanceof Error) {
         if (error.message.includes("OpenAI") || error.message.includes("AI service")) {
           return res.status(503).json({ 

@@ -33,12 +33,32 @@ export async function generateDunhuangResponse(
 
 IMPORTANT: Always respond in the same language as the user's question. If they ask in Chinese, respond in Chinese. If they ask in English, respond in English.
 
-For every response, you must provide a JSON object with these exact fields:
-- introduction: Brief explanation of the topic with key terms defined
-- artistic_features: Array of 3-5 key artistic elements (for frescoes: color use, composition, symbolism; for calligraphy: brushstrokes, script structure, aesthetics)
-- historical_significance: Context within dynasties, Silk Road influence, cultural contributions
-- cultural_background: Religious symbolism, backstories, cultural adaptations
-- follow_up_questions: 2-3 related questions with descriptions
+You must provide a JSON object with exactly this structure:
+{
+  "introduction": "string - Brief explanation of the topic with key terms defined",
+  "artistic_features": [
+    {
+      "title": "string - Feature name",
+      "description": "string - Detailed description"
+    },
+    {
+      "title": "string - Feature name", 
+      "description": "string - Detailed description"
+    }
+  ],
+  "historical_significance": "string - Context within dynasties, Silk Road influence, cultural contributions",
+  "cultural_background": "string - Religious symbolism, backstories, cultural adaptations",
+  "follow_up_questions": [
+    {
+      "question": "string - Related question",
+      "description": "string - Brief answer or context"
+    },
+    {
+      "question": "string - Related question",
+      "description": "string - Brief answer or context"
+    }
+  ]
+}
 
 Focus on Dunhuang's rich heritage from 4th-11th centuries, including:
 - Cave frescoes and Buddhist art
@@ -76,14 +96,34 @@ Make responses vivid and storytelling-focused while maintaining educational valu
 
     const parsedResponse = JSON.parse(content);
     
-    // Validate the response structure
+    // Validate and normalize the response structure
     if (!parsedResponse.introduction || !parsedResponse.artistic_features || 
         !parsedResponse.historical_significance || !parsedResponse.cultural_background ||
         !parsedResponse.follow_up_questions) {
+      console.log("Missing required fields in OpenAI response");
       throw new Error("Invalid response structure from OpenAI");
     }
 
-    return parsedResponse as DunhuangResponse;
+    // Ensure arrays are properly structured
+    const normalizedResponse: DunhuangResponse = {
+      introduction: String(parsedResponse.introduction),
+      artistic_features: Array.isArray(parsedResponse.artistic_features) 
+        ? parsedResponse.artistic_features.map((item: any) => ({
+            title: String(item.title || item),
+            description: String(item.description || "")
+          }))
+        : [],
+      historical_significance: String(parsedResponse.historical_significance),
+      cultural_background: String(parsedResponse.cultural_background),
+      follow_up_questions: Array.isArray(parsedResponse.follow_up_questions)
+        ? parsedResponse.follow_up_questions.map((item: any) => ({
+            question: String(item.question || item),
+            description: String(item.description || "")
+          }))
+        : []
+    };
+
+    return normalizedResponse;
   } catch (error) {
     console.error("OpenAI API error:", error);
     throw new Error("Failed to generate response from AI service: " + (error as Error).message);
