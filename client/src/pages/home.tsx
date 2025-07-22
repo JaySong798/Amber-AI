@@ -18,34 +18,34 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-sand-50 dunhuang-pattern">
+    <div className="min-h-screen bg-warm-cream-50 tang-imperial-pattern">
       {/* Header */}
-      <header className="bg-card/95 backdrop-blur-sm shadow-lg border-b border-sand-200 sticky top-0 z-50">
+      <header className="bg-card/95 backdrop-blur-sm shadow-lg border-b border-imperial-gold-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo Section */}
             <div className="flex items-center space-x-3">
               <Logo />
               <div>
-                <h1 className="text-xl font-bold text-cave-brown-800">Amber AI</h1>
-                <p className="text-xs text-terracotta-600 font-medium">Restore the History</p>
+                <h1 className="text-xl font-bold text-deep-bronze-800">Amber AI</h1>
+                <p className="text-xs text-tang-red-600 font-medium">Restore the History</p>
               </div>
             </div>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
-              <a href="#" className="text-cave-brown-600 hover:text-terracotta-600 transition-colors font-medium">Explore</a>
-              <a href="#" className="text-cave-brown-600 hover:text-terracotta-600 transition-colors font-medium">Gallery</a>
-              <a href="#" className="text-cave-brown-600 hover:text-terracotta-600 transition-colors font-medium">About</a>
+              <a href="#" className="text-deep-bronze-600 hover:text-tang-red-600 transition-colors font-medium">Explore</a>
+              <a href="#" className="text-deep-bronze-600 hover:text-tang-red-600 transition-colors font-medium">Gallery</a>
+              <a href="#" className="text-deep-bronze-600 hover:text-tang-red-600 transition-colors font-medium">About</a>
             </nav>
             
             {/* Language Selector and Mobile Menu */}
             <div className="flex items-center space-x-3">
               <Select value={language} onValueChange={setLanguage}>
-                <SelectTrigger className="w-20 text-sm border-sand-300 bg-sand-100/50 focus:ring-turquoise-500 focus:border-turquoise-500 text-cave-brown-700">
+                <SelectTrigger className="w-20 text-sm border-imperial-gold-300 bg-imperial-gold-100/50 focus:ring-turquoise-blue-500 focus:border-turquoise-blue-500 text-deep-bronze-700">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-card border-sand-200">
+                <SelectContent className="bg-card border-imperial-gold-200">
                   <SelectItem value="en">EN</SelectItem>
                   <SelectItem value="zh">中文</SelectItem>
                   <SelectItem value="ar">عربى</SelectItem>
@@ -55,11 +55,11 @@ export default function Home() {
               {/* Mobile Menu Trigger */}
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="sm" className="md:hidden text-cave-brown-700 hover:bg-sand-200">
+                  <Button variant="ghost" size="sm" className="md:hidden text-deep-bronze-700 hover:bg-warm-cream-200">
                     <Menu className="h-5 w-5" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-80 p-0 bg-sand-50">
+                <SheetContent side="left" className="w-80 p-0 bg-warm-cream-50">
                   <div className="h-full overflow-y-auto">
                     <Sidebar onQuestionClick={handleQuestionClick} />
                   </div>
