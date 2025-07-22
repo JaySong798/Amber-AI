@@ -51,7 +51,9 @@ Preferred communication style: Simple, everyday language.
 - **Multi-language Support**: Supports English and Chinese conversations
 
 ### UI Components
-- **Custom Design System**: Amber and turquoise color palette reflecting Dunhuang aesthetics
+- **Modern Design System**: Dark turquoise blue and yellow-orange theme colors with proper contrast
+- **Contemporary Aesthetics**: Clean, modern interface moving away from ancient styling
+- **Enhanced Visual Hierarchy**: Distinct section styling with hover effects and smooth transitions
 - **Responsive Layout**: Mobile-first design with collapsible sidebar
 - **Accessibility**: ARIA-compliant components from Radix UI
 
