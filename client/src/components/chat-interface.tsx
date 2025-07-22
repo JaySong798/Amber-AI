@@ -117,8 +117,8 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
         {/* Welcome Message */}
         <div className="chat-message">
           <div className="flex items-start space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-tang-red-500 to-cave-brown-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-              <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
+            <div className="w-8 h-8 bg-turquoise-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
               </svg>
             </div>

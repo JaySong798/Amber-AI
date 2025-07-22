@@ -32,8 +32,8 @@ export function Message({ message, onQuestionClick }: MessageProps) {
             </div>
             <span className="text-xs text-deep-bronze-500 mt-1 font-medium">You • {formatTime(message.timestamp)}</span>
           </div>
-          <div className="w-8 h-8 bg-cave-brown-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-            <User className="w-4 h-4 text-black" />
+          <div className="w-8 h-8 bg-turquoise-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+            <User className="w-4 h-4 text-white" />
           </div>
         </div>
       </div>
@@ -45,8 +45,8 @@ export function Message({ message, onQuestionClick }: MessageProps) {
   return (
     <div className="chat-message">
       <div className="flex items-start space-x-3">
-        <div className="w-8 h-8 bg-gradient-to-br from-tang-red-500 to-cave-brown-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-          <Bot className="w-4 h-4 text-black" />
+        <div className="w-8 h-8 bg-turquoise-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+          <Bot className="w-4 h-4 text-white" />
         </div>
         <div className="flex-1">
           {structured ? (
