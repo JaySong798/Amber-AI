@@ -8,13 +8,13 @@ export function LoadingMessage() {
           <Bot className="w-4 h-4 text-white" />
         </div>
         <div className="flex-1">
-          <div className="bg-warm-cream-100/80 border border-imperial-gold-200 rounded-lg p-4 section-card">
+          <div className="bg-card border border-primary rounded-lg p-4 section-card">
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-deep-bronze-700 font-medium">Exploring Dunhuang archives</span>
+              <span className="text-sm text-foreground font-medium">Exploring Dunhuang archives</span>
               <div className="loading-dots flex space-x-1">
-                <span className="w-1 h-1 bg-turquoise-blue-500 rounded-full"></span>
-                <span className="w-1 h-1 bg-turquoise-blue-500 rounded-full"></span>
-                <span className="w-1 h-1 bg-turquoise-blue-500 rounded-full"></span>
+                <span className="w-1 h-1 bg-primary rounded-full"></span>
+                <span className="w-1 h-1 bg-primary rounded-full"></span>
+                <span className="w-1 h-1 bg-primary rounded-full"></span>
               </div>
             </div>
           </div>

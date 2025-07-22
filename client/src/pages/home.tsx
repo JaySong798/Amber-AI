@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-warm-cream-50 tang-imperial-pattern">
       {/* Header */}
-      <header className="bg-card/95 backdrop-blur-sm shadow-lg border-b border-imperial-gold-200 sticky top-0 z-50">
+      <header className="bg-card/95 backdrop-blur-sm shadow-lg border-b border-primary sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo Section */}
@@ -42,10 +42,10 @@ export default function Home() {
             {/* Language Selector and Mobile Menu */}
             <div className="flex items-center space-x-3">
               <Select value={language} onValueChange={setLanguage}>
-                <SelectTrigger className="w-20 text-sm border-imperial-gold-300 bg-imperial-gold-100/50 focus:ring-turquoise-blue-500 focus:border-turquoise-blue-500 text-deep-bronze-700">
+                <SelectTrigger className="w-20 text-sm border-primary bg-secondary/50 focus:ring-primary focus:border-primary text-foreground">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-card border-imperial-gold-200">
+                <SelectContent className="bg-card border-primary">
                   <SelectItem value="en">EN</SelectItem>
                   <SelectItem value="zh">中文</SelectItem>
                   <SelectItem value="ar">عربى</SelectItem>

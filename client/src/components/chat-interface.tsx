@@ -99,7 +99,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
   return (
     <main className="flex-1 flex flex-col bg-card/50">
       {/* Chat Header */}
-      <div className="border-b border-imperial-gold-200 p-4 lg:p-6 bg-imperial-gold-100/40 silk-texture backdrop-blur-sm">
+      <div className="border-b border-primary p-4 lg:p-6 bg-secondary/40 silk-texture backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-semibold text-deep-bronze-800">Dunhuang Cultural Explorer</h2>
@@ -123,30 +123,30 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
               </svg>
             </div>
             <div className="flex-1">
-              <div className="bg-warm-cream-100/80 border border-imperial-gold-200 rounded-lg p-4 section-card">
+              <div className="bg-card border border-primary rounded-lg p-4 section-card">
                 <div className="break-words leading-relaxed">
-                  <p className="text-sm text-deep-bronze-700 font-medium">Welcome! I'm your AI guide to the magnificent world of Dunhuang. I can help you explore:</p>
-                  <ul className="mt-3 space-y-1 text-sm text-deep-bronze-600">
+                  <p className="text-sm text-foreground font-medium">Welcome! I'm your AI guide to the magnificent world of Dunhuang. I can help you explore:</p>
+                  <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Cave frescoes and their meanings
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Calligraphy styles and techniques
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Historical context and cultural significance
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Buddhist and religious symbolism
@@ -175,7 +175,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
       </div>
       
       {/* Chat Input Area */}
-      <div className="border-t border-imperial-gold-200 p-4 lg:p-6 bg-card/95 backdrop-blur-sm">
+      <div className="border-t border-primary p-4 lg:p-6 bg-card/95 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="flex items-end space-x-3">
             <div className="flex-1">
@@ -185,7 +185,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
                 rows={1}
-                className="resize-none min-h-[48px] max-h-[120px] border-imperial-gold-300 bg-warm-cream-100/50 text-deep-bronze-800 placeholder:text-deep-bronze-500 focus:ring-2 focus:ring-turquoise-blue-500 focus:border-turquoise-blue-500"
+                className="resize-none min-h-[48px] max-h-[120px] border-primary bg-input text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary focus:border-primary"
                 placeholder="Ask me about Dunhuang art, history, or culture..."
                 disabled={sendMessage.isPending}
               />
@@ -193,7 +193,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button 
               type="submit" 
               disabled={!input.trim() || sendMessage.isPending}
-              className="bg-turquoise-blue-500 hover:bg-turquoise-blue-600 text-white px-6 py-3 shadow-sm focus:ring-2 focus:ring-turquoise-blue-500 focus:ring-offset-2"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 shadow-sm focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <Send className="w-4 h-4 mr-2 sm:mr-0" />
               <span className="hidden sm:inline">Send</span>
@@ -205,7 +205,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-imperial-gold-300/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
+              className="px-3 py-1 bg-muted/60 hover:bg-muted text-foreground border border-primary/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
               onClick={() => handleQuestionClick("Explain Buddhist symbolism in Cave 17")}
             >
               Cave 17 symbolism
@@ -213,7 +213,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-tang-red-100/60 hover:bg-tang-red-200 text-tang-red-700 border border-tang-red-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
+              className="px-3 py-1 bg-accent/20 hover:bg-accent/30 text-accent border border-primary/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
               onClick={() => handleQuestionClick("Compare Tang and Song dynasty art styles")}
             >
               Tang vs Song styles
@@ -221,14 +221,14 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-turquoise-blue-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
+              className="px-3 py-1 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
               onClick={() => handleQuestionClick("What is the Library Cave discovery?")}
             >
               Library Cave
             </Button>
           </div>
           
-          <p className="text-xs text-deep-bronze-500 mt-3 text-center flex items-center justify-center font-medium">
+          <p className="text-xs text-muted-foreground mt-3 text-center flex items-center justify-center font-medium">
             <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
