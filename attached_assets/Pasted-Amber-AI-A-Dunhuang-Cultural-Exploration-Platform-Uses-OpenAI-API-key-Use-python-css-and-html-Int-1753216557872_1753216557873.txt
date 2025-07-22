@@ -1,0 +1,44 @@
+Amber AI: A Dunhuang Cultural Exploration Platform
+Uses OpenAI API key
+Use python, css, and html
+Introduction Dunhuang is a crown jewel of Chinese traditional culture, renowned for its richly painted cave frescoes and elegant calligraphy works. Spanning from the 4th to the 11th century, Dunhuang art reflects the cultural prosperity of the Tang Dynasty and the spiritual legacy of the Wei and Jin periods. It captures a vibrant period of social development, religious evolution, and East-West exchange along the Silk Road.
+Problem Statement With growing public interest in traditional Chinese culture and advancements in technology, Dunhuang has gained renewed global attention. Both domestic and international audiences seek deeper understanding of its art and history, and Dunhuang has become a focal point for international digital heritage projects.
+Solution Amber AI offers an intelligent platform where users can engage with Dunhuang culture and calligraphy through AI-generated, culturally rich content. It provides structured, interactive, and vivid explanations that make ancient Dunhuang accessible and engaging for modern learners.
+Platform Description Amber AI is designed to help users comprehensively explore the stories, artworks, and spiritual heritage of Dunhuang. Whether users are curious newcomers or cultural enthusiasts, the AI transforms complex historical information into visually and narratively engaging responses.
+Target Audience
+	•	Individuals interested in Dunhuang frescoes, Buddhist art, or Chinese calligraphy
+	•	Educators, students, and cultural tourists
+	•	Researchers and general audiences passionate about ancient Asian cultures
+
+User Input Format
+	1	General Questions – e.g., "What is Dunhuang calligraphy?" "Who are the Flying Apsaras?"
+	2	Specific Questions – e.g., "Introduce the Mahaparinirvana Sutra mural in Cave 148." "Compare Avalokitesvara in Buddhist and Taoist contexts."
+
+Output Structure and Logic
+	1	Introduction
+	◦	Briefly explain the topic
+	◦	Define key terms or cultural/religious references
+	2	Artistic Features (3–5 Key Points)
+	◦	Frescoes: color use (e.g., turquoise blue), composition, symbolic elements (e.g., lotus, pipa) and their meanings
+	◦	Calligraphy: brushstroke styles, script structure, aesthetic principles
+	3	Historical Significance
+	◦	Contextualize within dynasties (e.g., Tang prosperity, Silk Road exchange)
+	◦	Highlight contributions to cultural integration and artistic development
+	4	Cultural and Religious Background
+	◦	Provide backstories of specific artworks (e.g., “Deer of Nine Colors”)
+	◦	Explain Buddhist cosmology and religious symbolism
+	◦	Compare cultural adaptations (e.g., Flying Apsaras in India vs. China)
+	5	Follow-Up Question Suggestions
+	◦	AI recommends 2–3 related questions the user might ask next
+	◦	Each includes a concise, informative answer
+
+Features of AI Responses
+	•	Vivid, descriptive language and storytelling
+	•	Culturally immersive yet accessible to all users
+	•	Designed for users with no prior knowledge of Dunhuang
+Features of the AI Platform
+	•	Interactive: users can engage in multi-turn dialogue with the AI
+	•	Structured: content is presented in logical, easy-to-follow sections
+	•	Scalable: adaptable to future inclusion of images, voice, or multimedia
+	•	Output: Output language same as input language
+Logo: see attached file
