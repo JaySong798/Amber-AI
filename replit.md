@@ -41,7 +41,9 @@ Preferred communication style: Simple, everyday language.
 
 ### AI Integration
 - **Modular AI Functions**: Separate specialized functions for each response section
-- **Targeted Prompts**: Individual prompts for Introduction, Artistic Features, Historical Significance, Cultural Background, and Follow-up Questions
+- **Summary-Based Introduction**: Introduction serves as overview of artistic, historical, and cultural elements
+- **Distinct Section Content**: Each section provides detailed, specific information in its domain
+- **Targeted Prompts**: Individual prompts focused on concrete details rather than role-based perspectives
 - **Parallel Processing**: All sections generated simultaneously for optimal performance
 - **Multi-language Support**: Supports English and Chinese conversations
 

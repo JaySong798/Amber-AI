@@ -21,19 +21,19 @@ export interface DunhuangResponse {
 
 // Individual section generation functions
 async function generateIntroduction(userMessage: string, language: string): Promise<string> {
-  const prompt = `You are an expert Dunhuang cultural guide. Generate a brief, engaging introduction to the user's question about Dunhuang culture.
+  const prompt = `Generate a comprehensive summary introduction about the user's question regarding Dunhuang culture. This introduction should serve as an overview of the artistic features, historical significance, and cultural background that will be detailed in later sections.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
 Focus on:
-- Key terms and concepts definition
-- Setting context for the topic
-- Capturing the reader's interest
-- Brief overview of what will be covered
+- Brief summary of the artistic elements involved
+- Overview of historical context and time period
+- Summary of cultural and religious significance
+- Key concepts and terminology definition
 
 User's question: ${userMessage}
 
-Provide only the introduction text (no JSON, no additional formatting).`;
+Provide only the introduction summary text (no JSON, no additional formatting).`;
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -46,15 +46,17 @@ Provide only the introduction text (no JSON, no additional formatting).`;
 }
 
 async function generateArtisticFeatures(userMessage: string, language: string): Promise<Array<{title: string, description: string}>> {
-  const prompt = `You are an expert in Dunhuang art and visual culture. Generate 3-4 key artistic features related to the user's question.
+  const prompt = `Generate detailed artistic features specifically related to the user's question about Dunhuang culture. Focus on concrete visual elements, techniques, and artistic characteristics.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Focus on:
-- Visual techniques and styles
-- Materials and methods
-- Artistic symbolism
-- Unique characteristics
+Focus on specific artistic details:
+- Visual painting techniques and brushwork styles
+- Color palettes and pigment usage
+- Compositional arrangements and spatial design
+- Sculptural techniques and materials
+- Iconographic elements and symbolic representations
+- Decorative patterns and motifs
 
 User's question: ${userMessage}
 
@@ -88,16 +90,18 @@ Provide a JSON object with this exact format:
 }
 
 async function generateHistoricalSignificance(userMessage: string, language: string): Promise<string> {
-  const prompt = `You are a historian specializing in ancient Chinese culture and the Silk Road. Generate historical context and significance for the user's question about Dunhuang.
+  const prompt = `Generate detailed historical context and significance specifically related to the user's question about Dunhuang culture. Focus on chronological development, political events, and historical impact.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Focus on:
-- Historical timeline and dynasties (4th-11th centuries)
-- Silk Road connections and cultural exchange
-- Political and social context
-- Impact on Chinese and world culture
-- Key historical figures or events
+Focus on specific historical details:
+- Specific dynasties and time periods (4th-11th centuries)
+- Construction dates and historical phases
+- Silk Road trade routes and merchant activities
+- Political patronage and imperial support
+- Historical events that influenced development
+- Archaeological discoveries and historical documentation
+- Connections to specific rulers, monks, or historical figures
 
 User's question: ${userMessage}
 
@@ -114,17 +118,19 @@ Provide only the historical significance text (no JSON, no additional formatting
 }
 
 async function generateCulturalBackground(userMessage: string, language: string): Promise<string> {
-  const prompt = `You are an expert in Buddhist culture and Chinese religious traditions. Generate cultural and religious background information for the user's question about Dunhuang.
+  const prompt = `Generate detailed cultural and religious background specifically related to the user's question about Dunhuang culture. Focus on religious practices, cultural meanings, and spiritual contexts.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Focus on:
-- Religious symbolism and meaning
-- Buddhist teachings and stories
-- Cultural traditions and practices
-- Spiritual significance
-- Cross-cultural influences from India and Central Asia
-- Legends and folklore
+Focus on specific cultural details:
+- Buddhist doctrines and specific sutras depicted
+- Religious ceremonies and ritual practices
+- Symbolic meanings of artistic elements
+- Cultural fusion between Chinese, Indian, and Central Asian traditions
+- Monastic life and pilgrimage practices
+- Specific deities, bodhisattvas, and religious figures
+- Cultural beliefs and spiritual concepts
+- Folk traditions and local adaptations
 
 User's question: ${userMessage}
 
@@ -141,15 +147,17 @@ Provide only the cultural background text (no JSON, no additional formatting).`;
 }
 
 async function generateFollowUpQuestions(userMessage: string, language: string): Promise<Array<{question: string, description: string}>> {
-  const prompt = `You are an educational guide for Dunhuang culture. Generate 3-4 thoughtful follow-up questions that would naturally extend the user's learning journey.
+  const prompt = `Generate thoughtful follow-up questions that encourage deeper exploration of Dunhuang culture related to the user's original question. Create questions that build naturally from the topic.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Focus on:
-- Questions that build on the current topic
-- Different aspects of Dunhuang culture
-- Encouraging deeper exploration
-- Connecting to broader themes
+Focus on creating questions that:
+- Explore related artistic techniques or styles
+- Investigate historical connections and influences
+- Examine cultural significance and meanings
+- Compare with other Dunhuang sites or periods
+- Connect to broader Silk Road or Buddhist themes
+- Encourage specific detailed inquiry
 
 User's original question: ${userMessage}
 
