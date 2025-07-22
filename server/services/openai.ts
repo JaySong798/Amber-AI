@@ -19,108 +19,187 @@ export interface DunhuangResponse {
   }>;
 }
 
+// Individual section generation functions
+async function generateIntroduction(userMessage: string, language: string): Promise<string> {
+  const prompt = `You are an expert Dunhuang cultural guide. Generate a brief, engaging introduction to the user's question about Dunhuang culture.
+
+IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
+
+Focus on:
+- Key terms and concepts definition
+- Setting context for the topic
+- Capturing the reader's interest
+- Brief overview of what will be covered
+
+User's question: ${userMessage}
+
+Provide only the introduction text (no JSON, no additional formatting).`;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.7,
+    max_tokens: 300,
+  });
+
+  return response.choices[0].message.content || "";
+}
+
+async function generateArtisticFeatures(userMessage: string, language: string): Promise<Array<{title: string, description: string}>> {
+  const prompt = `You are an expert in Dunhuang art and visual culture. Generate 3-4 key artistic features related to the user's question.
+
+IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
+
+Focus on:
+- Visual techniques and styles
+- Materials and methods
+- Artistic symbolism
+- Unique characteristics
+
+User's question: ${userMessage}
+
+Provide a JSON array with this exact format:
+[
+  {"title": "Feature name", "description": "Detailed description"},
+  {"title": "Feature name", "description": "Detailed description"}
+]`;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o",
+    messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" },
+    temperature: 0.7,
+    max_tokens: 600,
+  });
+
+  const content = response.choices[0].message.content;
+  if (!content) return [];
+  
+  try {
+    const parsed = JSON.parse(content);
+    return Array.isArray(parsed) ? parsed : parsed.features || [];
+  } catch {
+    return [];
+  }
+}
+
+async function generateHistoricalSignificance(userMessage: string, language: string): Promise<string> {
+  const prompt = `You are a historian specializing in ancient Chinese culture and the Silk Road. Generate historical context and significance for the user's question about Dunhuang.
+
+IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
+
+Focus on:
+- Historical timeline and dynasties (4th-11th centuries)
+- Silk Road connections and cultural exchange
+- Political and social context
+- Impact on Chinese and world culture
+- Key historical figures or events
+
+User's question: ${userMessage}
+
+Provide only the historical significance text (no JSON, no additional formatting).`;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.6,
+    max_tokens: 400,
+  });
+
+  return response.choices[0].message.content || "";
+}
+
+async function generateCulturalBackground(userMessage: string, language: string): Promise<string> {
+  const prompt = `You are an expert in Buddhist culture and Chinese religious traditions. Generate cultural and religious background information for the user's question about Dunhuang.
+
+IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
+
+Focus on:
+- Religious symbolism and meaning
+- Buddhist teachings and stories
+- Cultural traditions and practices
+- Spiritual significance
+- Cross-cultural influences from India and Central Asia
+- Legends and folklore
+
+User's question: ${userMessage}
+
+Provide only the cultural background text (no JSON, no additional formatting).`;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.7,
+    max_tokens: 400,
+  });
+
+  return response.choices[0].message.content || "";
+}
+
+async function generateFollowUpQuestions(userMessage: string, language: string): Promise<Array<{question: string, description: string}>> {
+  const prompt = `You are an educational guide for Dunhuang culture. Generate 3-4 thoughtful follow-up questions that would naturally extend the user's learning journey.
+
+IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
+
+Focus on:
+- Questions that build on the current topic
+- Different aspects of Dunhuang culture
+- Encouraging deeper exploration
+- Connecting to broader themes
+
+User's original question: ${userMessage}
+
+Provide a JSON array with this exact format:
+[
+  {"question": "Follow-up question", "description": "Brief context or hint"},
+  {"question": "Follow-up question", "description": "Brief context or hint"}
+]`;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o",
+    messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" },
+    temperature: 0.8,
+    max_tokens: 500,
+  });
+
+  const content = response.choices[0].message.content;
+  if (!content) return [];
+  
+  try {
+    const parsed = JSON.parse(content);
+    return Array.isArray(parsed) ? parsed : parsed.questions || [];
+  } catch {
+    return [];
+  }
+}
+
 export async function generateDunhuangResponse(
   userMessage: string, 
   language: string = "en"
 ): Promise<DunhuangResponse> {
-  const systemPrompt = `You are Amber AI, an expert cultural guide specializing in Dunhuang art, history, and heritage. You provide structured, educational responses about Dunhuang culture that are:
-
-1. Culturally accurate and respectful
-2. Educational yet accessible to all knowledge levels
-3. Rich in vivid, descriptive language
-4. Structured according to the specified format
-5. Responsive in the same language as the user's input
-
-IMPORTANT: Always respond in the same language as the user's question. If they ask in Chinese, respond in Chinese. If they ask in English, respond in English.
-
-You must provide a JSON object with exactly this structure:
-{
-  "introduction": "string - Brief explanation of the topic with key terms defined",
-  "artistic_features": [
-    {
-      "title": "string - Feature name",
-      "description": "string - Detailed description"
-    },
-    {
-      "title": "string - Feature name", 
-      "description": "string - Detailed description"
-    }
-  ],
-  "historical_significance": "string - Context within dynasties, Silk Road influence, cultural contributions",
-  "cultural_background": "string - Religious symbolism, backstories, cultural adaptations",
-  "follow_up_questions": [
-    {
-      "question": "string - Related question",
-      "description": "string - Brief answer or context"
-    },
-    {
-      "question": "string - Related question",
-      "description": "string - Brief answer or context"
-    }
-  ]
-}
-
-Focus on Dunhuang's rich heritage from 4th-11th centuries, including:
-- Cave frescoes and Buddhist art
-- Calligraphy traditions
-- Silk Road cultural exchange
-- Tang Dynasty influence
-- Religious and spiritual significance
-- Flying Apsaras and celestial beings
-- Cultural integration between India, Central Asia, and China
-
-Make responses vivid and storytelling-focused while maintaining educational value.`;
-
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o",
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt,
-        },
-        {
-          role: "user",
-          content: userMessage,
-        },
-      ],
-      response_format: { type: "json_object" },
-      temperature: 0.7,
-      max_tokens: 2000,
-    });
+    // Generate all sections in parallel for better performance
+    const [
+      introduction,
+      artistic_features,
+      historical_significance,
+      cultural_background,
+      follow_up_questions
+    ] = await Promise.all([
+      generateIntroduction(userMessage, language),
+      generateArtisticFeatures(userMessage, language),
+      generateHistoricalSignificance(userMessage, language),
+      generateCulturalBackground(userMessage, language),
+      generateFollowUpQuestions(userMessage, language)
+    ]);
 
-    const content = response.choices[0].message.content;
-    if (!content) {
-      throw new Error("No response content received from OpenAI");
-    }
-
-    const parsedResponse = JSON.parse(content);
-    
-    // Validate and normalize the response structure
-    if (!parsedResponse.introduction || !parsedResponse.artistic_features || 
-        !parsedResponse.historical_significance || !parsedResponse.cultural_background ||
-        !parsedResponse.follow_up_questions) {
-      console.log("Missing required fields in OpenAI response");
-      throw new Error("Invalid response structure from OpenAI");
-    }
-
-    // Ensure arrays are properly structured
     const normalizedResponse: DunhuangResponse = {
-      introduction: String(parsedResponse.introduction),
-      artistic_features: Array.isArray(parsedResponse.artistic_features) 
-        ? parsedResponse.artistic_features.map((item: any) => ({
-            title: String(item.title || item),
-            description: String(item.description || "")
-          }))
-        : [],
-      historical_significance: String(parsedResponse.historical_significance),
-      cultural_background: String(parsedResponse.cultural_background),
-      follow_up_questions: Array.isArray(parsedResponse.follow_up_questions)
-        ? parsedResponse.follow_up_questions.map((item: any) => ({
-            question: String(item.question || item),
-            description: String(item.description || "")
-          }))
-        : []
+      introduction: introduction || "Welcome to exploring Dunhuang culture.",
+      artistic_features: Array.isArray(artistic_features) ? artistic_features : [],
+      historical_significance: historical_significance || "Dunhuang holds significant historical importance in Chinese culture.",
+      cultural_background: cultural_background || "Dunhuang represents a rich tapestry of cultural traditions.",
+      follow_up_questions: Array.isArray(follow_up_questions) ? follow_up_questions : []
     };
 
     return normalizedResponse;

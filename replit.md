@@ -40,8 +40,9 @@ Preferred communication style: Simple, everyday language.
 - **Sidebar**: Provides quick-start questions and topic navigation
 
 ### AI Integration
-- **OpenAI Service**: Handles API calls with specialized Dunhuang cultural prompts
-- **Structured Responses**: AI outputs are formatted into educational sections
+- **Modular AI Functions**: Separate specialized functions for each response section
+- **Targeted Prompts**: Individual prompts for Introduction, Artistic Features, Historical Significance, Cultural Background, and Follow-up Questions
+- **Parallel Processing**: All sections generated simultaneously for optimal performance
 - **Multi-language Support**: Supports English and Chinese conversations
 
 ### UI Components
