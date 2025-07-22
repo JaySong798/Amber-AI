@@ -12,6 +12,7 @@ Amber AI is a web-based cultural exploration platform that uses OpenAI's API to 
 - **Grid-Based Response Layout**: Restructured AI responses into organized grid layout with Overview, Visual Elements, Cultural Context, Historical Timeline, and exploration sections
 - **Simplified Navigation**: Streamlined interface removing complex sidebar in favor of clean single-page layout with embedded quick-start suggestions
 - **Modern Typography**: Updated section titles and improved content organization for better readability
+- **Brand Integration**: Added official hexagonal logo with deer silhouette to header and welcome sections, complementing the modern color scheme
 
 ## User Preferences
 

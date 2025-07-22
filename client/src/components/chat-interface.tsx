@@ -8,6 +8,7 @@ import { Message } from "./message";
 import { LoadingMessage } from "./loading-message";
 import { ChatMessage } from "@/lib/types";
 import { apiRequest } from "@/lib/queryClient";
+import logoPath from "@assets/logo_1753228482637.png";
 
 interface ChatInterfaceProps {
   messages: ChatMessage[];
@@ -102,9 +103,11 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
       <div className="border-b border-neutral-200 p-6 bg-white shadow-sm">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-yellow-orange-500 to-dark-turquoise-500 rounded-xl flex items-center justify-center shadow-lg">
-              <div className="w-6 h-6 text-white font-bold text-lg">A</div>
-            </div>
+            <img 
+              src={logoPath} 
+              alt="Amber AI Logo" 
+              className="w-12 h-12 object-contain"
+            />
             <div>
               <h1 className="text-xl font-bold text-neutral-800">Amber AI</h1>
               <p className="text-sm text-neutral-600">Dunhuang Cultural Explorer</p>
@@ -124,9 +127,11 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
         <div className="max-w-4xl mx-auto p-6 space-y-6">
           {messages.length === 0 && (
             <div className="text-center space-y-6 py-20">
-              <div className="w-20 h-20 bg-gradient-to-br from-yellow-orange-500 to-dark-turquoise-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-                <div className="w-10 h-10 text-white font-bold text-xl">A</div>
-              </div>
+              <img 
+                src={logoPath} 
+                alt="Amber AI Logo" 
+                className="w-20 h-20 object-contain mx-auto"
+              />
               <div>
                 <h2 className="text-3xl font-bold text-neutral-800 mb-4">
                   Explore Dunhuang Culture
