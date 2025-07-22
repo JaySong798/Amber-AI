@@ -41,9 +41,11 @@ Preferred communication style: Simple, everyday language.
 
 ### AI Integration
 - **Modular AI Functions**: Separate specialized functions for each response section
-- **Summary-Based Introduction**: Introduction serves as overview of artistic, historical, and cultural elements
-- **Distinct Section Content**: Each section provides detailed, specific information in its domain
-- **Targeted Prompts**: Individual prompts focused on concrete details rather than role-based perspectives
+- **Overarching Style Guide**: Universal storytelling approach emphasizing vivid descriptions and accessibility
+- **Summary-Based Introduction**: Introduction serves as captivating gateway into Dunhuang's world
+- **Storytelling Focus**: Rich, descriptive language that brings ancient Dunhuang to life
+- **Accessibility-First**: Designed for users with no prior knowledge, using engaging analogies
+- **Cultural Immersion**: Transport readers to ancient caves through sensory details and narratives
 - **Parallel Processing**: All sections generated simultaneously for optimal performance
 - **Multi-language Support**: Supports English and Chinese conversations
 
