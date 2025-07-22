@@ -58,11 +58,14 @@ Focus on:
 
 User's question: ${userMessage}
 
-Provide a JSON array with this exact format:
-[
-  {"title": "Feature name", "description": "Detailed description"},
-  {"title": "Feature name", "description": "Detailed description"}
-]`;
+Provide a JSON object with this exact format:
+{
+  "features": [
+    {"title": "Feature name", "description": "Detailed description"},
+    {"title": "Feature name", "description": "Detailed description"},
+    {"title": "Feature name", "description": "Detailed description"}
+  ]
+}`;
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -77,8 +80,9 @@ Provide a JSON array with this exact format:
   
   try {
     const parsed = JSON.parse(content);
-    return Array.isArray(parsed) ? parsed : parsed.features || [];
-  } catch {
+    return parsed.features || [];
+  } catch (error) {
+    console.error("Error parsing artistic features JSON:", error);
     return [];
   }
 }
@@ -149,11 +153,14 @@ Focus on:
 
 User's original question: ${userMessage}
 
-Provide a JSON array with this exact format:
-[
-  {"question": "Follow-up question", "description": "Brief context or hint"},
-  {"question": "Follow-up question", "description": "Brief context or hint"}
-]`;
+Provide a JSON object with this exact format:
+{
+  "questions": [
+    {"question": "Follow-up question", "description": "Brief context or hint"},
+    {"question": "Follow-up question", "description": "Brief context or hint"},
+    {"question": "Follow-up question", "description": "Brief context or hint"}
+  ]
+}`;
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -168,8 +175,9 @@ Provide a JSON array with this exact format:
   
   try {
     const parsed = JSON.parse(content);
-    return Array.isArray(parsed) ? parsed : parsed.questions || [];
-  } catch {
+    return parsed.questions || [];
+  } catch (error) {
+    console.error("Error parsing follow-up questions JSON:", error);
     return [];
   }
 }
