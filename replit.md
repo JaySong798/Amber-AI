@@ -4,6 +4,15 @@
 
 Amber AI is a web-based cultural exploration platform that uses OpenAI's API to provide interactive conversations about Dunhuang art, history, and spiritual heritage. The application is built as a full-stack TypeScript application with a React frontend and Express.js backend, designed to make Chinese cultural heritage accessible through AI-powered educational content.
 
+## Recent Changes (December 2024)
+
+- **Complete UI Modernization**: Transformed entire interface from ancient-themed design to modern, professional company website aesthetic
+- **Color Block Layout**: Implemented concise color-block design inspired by modern company websites with dark turquoise blue (#0891b2) and yellow-orange (#f97316) theme colors
+- **Enhanced Visual Hierarchy**: Created distinct sections using strategic color contrast - primary content in colored blocks, secondary content in white cards
+- **Grid-Based Response Layout**: Restructured AI responses into organized grid layout with Overview, Visual Elements, Cultural Context, Historical Timeline, and exploration sections
+- **Simplified Navigation**: Streamlined interface removing complex sidebar in favor of clean single-page layout with embedded quick-start suggestions
+- **Modern Typography**: Updated section titles and improved content organization for better readability
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

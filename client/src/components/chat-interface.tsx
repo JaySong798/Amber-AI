@@ -97,67 +97,46 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
   };
 
   return (
-    <main className="flex-1 flex flex-col bg-card/50">
+    <main className="flex-1 flex flex-col bg-neutral-50">
       {/* Chat Header */}
-      <div className="border-b border-primary p-4 lg:p-6 bg-secondary/40 silk-texture backdrop-blur-sm">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-lg font-semibold text-deep-bronze-800">Dunhuang Cultural Explorer</h2>
-            <p className="text-sm text-deep-bronze-600">Ask me anything about Dunhuang art, history, and culture</p>
+      <div className="border-b border-neutral-200 p-6 bg-white shadow-sm">
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-yellow-orange-500 to-dark-turquoise-500 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-6 h-6 text-white font-bold text-lg">A</div>
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-neutral-800">Amber AI</h1>
+              <p className="text-sm text-neutral-600">Dunhuang Cultural Explorer</p>
+            </div>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-deep-bronze-500">
-            <div className="w-2 h-2 bg-cave-brown-400 rounded-full animate-pulse"></div>
-            <span className="font-medium">AI Ready</span>
+          <div className="flex items-center space-x-3">
+            <div className="hidden md:flex items-center text-sm text-neutral-600 bg-neutral-100 px-3 py-1.5 rounded-lg">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+              Online
+            </div>
           </div>
         </div>
       </div>
       
       {/* Chat Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 lg:p-6 space-y-6 scroll-smooth bg-warm-cream-50/30 tang-imperial-pattern">
-        {/* Welcome Message */}
-        <div className="chat-message">
-          <div className="flex items-start space-x-3">
-            <div className="w-8 h-8 bg-turquoise-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-              </svg>
-            </div>
-            <div className="flex-1">
-              <div className="bg-warm-cream-100/80 border border-cave-brown-300 rounded-lg p-4 section-card">
-                <div className="break-words leading-relaxed">
-                  <p className="text-sm text-foreground font-medium">Welcome! I'm your AI guide to the magnificent world of Dunhuang. I can help you explore:</p>
-                  <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-                    <li className="flex items-center">
-                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Cave frescoes and their meanings
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Calligraphy styles and techniques
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Historical context and cultural significance
-                    </li>
-                    <li className="flex items-center">
-                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Buddhist and religious symbolism
-                    </li>
-                  </ul>
-                </div>
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto p-6 space-y-6">
+          {messages.length === 0 && (
+            <div className="text-center space-y-6 py-20">
+              <div className="w-20 h-20 bg-gradient-to-br from-yellow-orange-500 to-dark-turquoise-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                <div className="w-10 h-10 text-white font-bold text-xl">A</div>
               </div>
-              <span className="text-xs text-deep-bronze-500 mt-1 block font-medium">Amber AI • Just now</span>
+              <div>
+                <h2 className="text-3xl font-bold text-neutral-800 mb-4">
+                  Explore Dunhuang Culture
+                </h2>
+                <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
+                  Discover the fascinating world of ancient Chinese art and heritage through AI-powered conversations. Ask about cave paintings, Buddhist traditions, or Silk Road history.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
 
         {/* Chat Messages */}
         {messages.map((message) => (
@@ -171,69 +150,55 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
         {/* Loading Message */}
         {sendMessage.isPending && <LoadingMessage />}
 
-        <div ref={messagesEndRef} />
+          <div ref={messagesEndRef} />
+        </div>
       </div>
       
       {/* Chat Input Area */}
-      <div className="border-t border-cave-brown-300 p-4 lg:p-6 bg-card/95 backdrop-blur-sm">
+      <div className="border-t border-neutral-200 bg-white p-6">
         <div className="max-w-4xl mx-auto">
-          <form onSubmit={handleSubmit} className="flex items-end space-x-3">
-            <div className="flex-1">
-              <Textarea
-                ref={textareaRef}
-                value={input}
-                onChange={handleInputChange}
-                onKeyDown={handleKeyDown}
-                rows={1}
-                className="resize-none min-h-[48px] max-h-[120px] border-cave-brown-400 bg-warm-cream-100/50 text-deep-bronze-800 placeholder:text-deep-bronze-500 focus:ring-2 focus:ring-cave-brown-500 focus:border-cave-brown-500"
-                placeholder="Ask me about Dunhuang art, history, or culture..."
-                disabled={sendMessage.isPending}
-              />
-            </div>
-            <Button 
-              type="submit" 
-              disabled={!input.trim() || sendMessage.isPending}
-              className="bg-cave-brown-500 hover:bg-cave-brown-600 text-black px-6 py-3 shadow-sm focus:ring-2 focus:ring-cave-brown-500 focus:ring-offset-2"
+          <form onSubmit={handleSubmit} className="flex gap-4">
+            <Textarea
+              ref={textareaRef}
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask about Dunhuang's art, history, or cultural significance..."
+              className="flex-1 min-h-[60px] max-h-32 resize-none bg-neutral-50 border-neutral-300 focus:border-dark-turquoise-500 focus:ring-dark-turquoise-500/20 rounded-lg text-base"
+              disabled={sendMessage.isPending}
+            />
+            <Button
+              type="submit"
+              disabled={sendMessage.isPending || !input.trim()}
+              size="lg"
+              className="self-end h-[60px] px-6 bg-yellow-orange-500 hover:bg-yellow-orange-600 text-white rounded-lg"
             >
-              <Send className="w-4 h-4 mr-2 sm:mr-0" />
-              <span className="hidden sm:inline">Send</span>
+              <Send className="w-4 h-4" />
             </Button>
           </form>
           
-          {/* Quick Suggestions */}
-          <div className="mt-3 flex flex-wrap gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="px-3 py-1 bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
-              onClick={() => handleQuestionClick("Explain Buddhist symbolism in Cave 17")}
-            >
-              Cave 17 symbolism
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="px-3 py-1 bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
-              onClick={() => handleQuestionClick("Compare Tang and Song dynasty art styles")}
-            >
-              Tang vs Song styles
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="px-3 py-1 bg-cave-brown-100/60 hover:bg-cave-brown-200 text-cave-brown-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
-              onClick={() => handleQuestionClick("What is the Library Cave discovery?")}
-            >
-              Library Cave
-            </Button>
-          </div>
-          
-          <p className="text-xs text-deep-bronze-500 mt-3 text-center flex items-center justify-center font-medium">
-            <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            Responses generated by AI. Cultural information is researched but should be verified for academic use.
-          </p>
+          {messages.length === 0 && (
+            <div className="mt-6 flex flex-wrap gap-3 justify-center">
+              <button
+                className="px-4 py-2 bg-white border border-neutral-300 hover:border-neutral-400 rounded-lg text-sm text-neutral-700 hover:bg-neutral-50 transition-colors"
+                onClick={() => handleQuestionClick("Explain Buddhist symbolism in Cave 17")}
+              >
+                Cave 17 symbolism
+              </button>
+              <button
+                className="px-4 py-2 bg-white border border-neutral-300 hover:border-neutral-400 rounded-lg text-sm text-neutral-700 hover:bg-neutral-50 transition-colors"
+                onClick={() => handleQuestionClick("Compare Tang and Song dynasty art styles")}
+              >
+                Art style comparison
+              </button>
+              <button
+                className="px-4 py-2 bg-white border border-neutral-300 hover:border-neutral-400 rounded-lg text-sm text-neutral-700 hover:bg-neutral-50 transition-colors"
+                onClick={() => handleQuestionClick("What is the Library Cave discovery?")}
+              >
+                Library Cave discovery
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </main>
