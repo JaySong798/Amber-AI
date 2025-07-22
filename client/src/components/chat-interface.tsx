@@ -106,7 +106,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <p className="text-sm text-deep-bronze-600">Ask me anything about Dunhuang art, history, and culture</p>
           </div>
           <div className="flex items-center space-x-2 text-xs text-deep-bronze-500">
-            <div className="w-2 h-2 bg-turquoise-blue-400 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-cave-brown-400 rounded-full animate-pulse"></div>
             <span className="font-medium">AI Ready</span>
           </div>
         </div>
@@ -117,8 +117,8 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
         {/* Welcome Message */}
         <div className="chat-message">
           <div className="flex items-start space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-tang-red-500 to-turquoise-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <div className="w-8 h-8 bg-gradient-to-br from-tang-red-500 to-cave-brown-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+              <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
               </svg>
             </div>
@@ -128,25 +128,25 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
                   <p className="text-sm text-foreground font-medium">Welcome! I'm your AI guide to the magnificent world of Dunhuang. I can help you explore:</p>
                   <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Cave frescoes and their meanings
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Calligraphy styles and techniques
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Historical context and cultural significance
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-cave-brown-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Buddhist and religious symbolism
@@ -193,7 +193,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button 
               type="submit" 
               disabled={!input.trim() || sendMessage.isPending}
-              className="bg-turquoise-blue-500 hover:bg-turquoise-blue-600 text-white px-6 py-3 shadow-sm focus:ring-2 focus:ring-cave-brown-500 focus:ring-offset-2"
+              className="bg-cave-brown-500 hover:bg-cave-brown-600 text-black px-6 py-3 shadow-sm focus:ring-2 focus:ring-cave-brown-500 focus:ring-offset-2"
             >
               <Send className="w-4 h-4 mr-2 sm:mr-0" />
               <span className="hidden sm:inline">Send</span>
@@ -221,7 +221,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
+              className="px-3 py-1 bg-cave-brown-100/60 hover:bg-cave-brown-200 text-cave-brown-700 border border-cave-brown-300 rounded-full text-xs h-auto font-medium transition-all duration-200 hover:border-cave-brown-400"
               onClick={() => handleQuestionClick("What is the Library Cave discovery?")}
             >
               Library Cave

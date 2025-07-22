@@ -27,13 +27,13 @@ export function Message({ message, onQuestionClick }: MessageProps) {
       <div className="chat-message">
         <div className="flex items-start space-x-3 justify-end">
           <div className="flex-1 flex flex-col items-end">
-            <div className="bg-turquoise-blue-500 text-white rounded-lg p-4 max-w-md shadow-sm border border-cave-brown-300">
+            <div className="bg-cave-brown-500 text-black rounded-lg p-4 max-w-md shadow-sm border border-cave-brown-300">
               <p className="text-sm break-words leading-relaxed">{message.content}</p>
             </div>
             <span className="text-xs text-deep-bronze-500 mt-1 font-medium">You • {formatTime(message.timestamp)}</span>
           </div>
-          <div className="w-8 h-8 bg-turquoise-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-            <User className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 bg-cave-brown-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+            <User className="w-4 h-4 text-black" />
           </div>
         </div>
       </div>
@@ -45,8 +45,8 @@ export function Message({ message, onQuestionClick }: MessageProps) {
   return (
     <div className="chat-message">
       <div className="flex items-start space-x-3">
-        <div className="w-8 h-8 bg-gradient-to-br from-tang-red-500 to-turquoise-blue-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-          <Bot className="w-4 h-4 text-white" />
+        <div className="w-8 h-8 bg-gradient-to-br from-tang-red-500 to-cave-brown-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+          <Bot className="w-4 h-4 text-black" />
         </div>
         <div className="flex-1">
           {structured ? (
@@ -87,15 +87,15 @@ function StructuredResponseComponent({
       </div>
 
       {/* Artistic Features */}
-      <div className="bg-turquoise-blue-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
+      <div className="bg-cave-brown-50/80 border border-cave-brown-300 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <Palette className="w-4 h-4 text-turquoise-blue-600 mr-2" />
-          <h4 className="font-semibold text-turquoise-blue-700">Artistic Features</h4>
+          <Palette className="w-4 h-4 text-cave-brown-600 mr-2" />
+          <h4 className="font-semibold text-cave-brown-700">Artistic Features</h4>
         </div>
-        <div className="space-y-3 text-sm text-turquoise-blue-800">
+        <div className="space-y-3 text-sm text-cave-brown-800">
           {response.artistic_features.map((feature, index) => (
             <div key={index} className="flex items-start space-x-2">
-              <span className="font-medium text-turquoise-blue-700 min-w-0">{feature.title}:</span>
+              <span className="font-medium text-cave-brown-700 min-w-0">{feature.title}:</span>
               <span className="break-words leading-relaxed">{feature.description}</span>
             </div>
           ))}
@@ -122,21 +122,21 @@ function StructuredResponseComponent({
 
       {/* Follow-up Questions */}
       {response.follow_up_questions.length > 0 && (
-        <div className="bg-turquoise-blue-50/60 border border-cave-brown-300 rounded-lg p-4 section-card phoenix-pattern">
+        <div className="bg-cave-brown-50/60 border border-cave-brown-300 rounded-lg p-4 section-card phoenix-pattern">
           <div className="flex items-center mb-3">
-            <MessageSquare className="w-4 h-4 text-turquoise-blue-600 mr-2" />
-            <h4 className="font-semibold text-turquoise-blue-700">Explore Further</h4>
+            <MessageSquare className="w-4 h-4 text-cave-brown-600 mr-2" />
+            <h4 className="font-semibold text-cave-brown-700">Explore Further</h4>
           </div>
           <div className="space-y-2">
             {response.follow_up_questions.map((item, index) => (
               <Button
                 key={index}
                 variant="ghost"
-                className="block w-full text-left p-3 bg-turquoise-blue-50/40 border border-cave-brown-200 rounded-lg hover:bg-turquoise-blue-100/60 hover:border-cave-brown-400 transition-all duration-200 suggestion-card h-auto"
+                className="block w-full text-left p-3 bg-cave-brown-50/40 border border-cave-brown-200 rounded-lg hover:bg-cave-brown-100/60 hover:border-cave-brown-400 transition-all duration-200 suggestion-card h-auto"
                 onClick={() => onQuestionClick(item.question)}
               >
-                <span className="text-sm font-medium text-turquoise-blue-800 block">{item.question}</span>
-                <span className="text-xs text-turquoise-blue-700 mt-1 block">{item.description}</span>
+                <span className="text-sm font-medium text-cave-brown-800 block">{item.question}</span>
+                <span className="text-xs text-cave-brown-700 mt-1 block">{item.description}</span>
               </Button>
             ))}
           </div>

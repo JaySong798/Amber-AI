@@ -207,13 +207,13 @@
 .bg-imperial-gold-600 { background-color: hsl(var(--imperial-gold-600)); }
 .bg-imperial-gold-700 { background-color: hsl(var(--imperial-gold-700)); }
 
-.bg-turquoise-blue-50 { background-color: hsl(var(--turquoise-blue-50)); }
-.bg-turquoise-blue-100 { background-color: hsl(var(--turquoise-blue-100)); }
-.bg-turquoise-blue-200 { background-color: hsl(var(--turquoise-blue-200)); }
-.bg-turquoise-blue-400 { background-color: hsl(var(--turquoise-blue-400)); }
-.bg-turquoise-blue-500 { background-color: hsl(var(--turquoise-blue-500)); }
-.bg-turquoise-blue-600 { background-color: hsl(var(--turquoise-blue-600)); }
-.bg-turquoise-blue-700 { background-color: hsl(var(--turquoise-blue-700)); }
+.bg-cave-brown-50 { background-color: hsl(var(--cave-brown-50)); }
+.bg-cave-brown-100 { background-color: hsl(var(--cave-brown-100)); }
+.bg-cave-brown-200 { background-color: hsl(var(--cave-brown-200)); }
+.bg-cave-brown-400 { background-color: hsl(var(--cave-brown-400)); }
+.bg-cave-brown-500 { background-color: hsl(var(--cave-brown-500)); }
+.bg-cave-brown-600 { background-color: hsl(var(--cave-brown-600)); }
+.bg-cave-brown-700 { background-color: hsl(var(--cave-brown-700)); }
 
 .bg-warm-cream-50 { background-color: hsl(var(--warm-cream-50)); }
 .bg-warm-cream-100 { background-color: hsl(var(--warm-cream-100)); }
@@ -230,10 +230,10 @@
 .text-imperial-gold-600 { color: hsl(var(--imperial-gold-600)); }
 .text-imperial-gold-700 { color: hsl(var(--imperial-gold-700)); }
 
-.text-turquoise-blue-400 { color: hsl(var(--turquoise-blue-400)); }
-.text-turquoise-blue-500 { color: hsl(var(--turquoise-blue-500)); }
-.text-turquoise-blue-600 { color: hsl(var(--turquoise-blue-600)); }
-.text-turquoise-blue-700 { color: hsl(var(--turquoise-blue-700)); }
+.text-cave-brown-400 { color: hsl(var(--cave-brown-400)); }
+.text-cave-brown-500 { color: hsl(var(--cave-brown-500)); }
+.text-cave-brown-600 { color: hsl(var(--cave-brown-600)); }
+.text-cave-brown-700 { color: hsl(var(--cave-brown-700)); }
 
 .text-deep-bronze-500 { color: hsl(var(--deep-bronze-500)); }
 .text-deep-bronze-600 { color: hsl(var(--deep-bronze-600)); }
@@ -242,13 +242,13 @@
 
 .border-tang-red-400 { border-color: hsl(var(--tang-red-400)); }
 .border-imperial-gold-400 { border-color: hsl(var(--imperial-gold-400)); }
-.border-turquoise-blue-500 { border-color: hsl(var(--turquoise-blue-500)); }
+.border-cave-brown-500 { border-color: hsl(var(--cave-brown-500)); }
 
 .hover\:bg-warm-cream-200:hover { background-color: hsl(var(--warm-cream-200)); }
 .hover\:bg-tang-red-200:hover { background-color: hsl(var(--tang-red-200)); }
 .hover\:bg-imperial-gold-200:hover { background-color: hsl(var(--imperial-gold-200)); }
-.hover\:bg-turquoise-blue-200:hover { background-color: hsl(var(--turquoise-blue-200)); }
+.hover\:bg-cave-brown-200:hover { background-color: hsl(var(--cave-brown-200)); }
 
-.focus\:ring-turquoise-blue-500:focus { 
-  --tw-ring-color: hsl(var(--turquoise-blue-500));
+.focus\:ring-cave-brown-500:focus { 
+  --tw-ring-color: hsl(var(--cave-brown-500));
 }

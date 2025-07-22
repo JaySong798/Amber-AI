@@ -39,7 +39,7 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
         <p className="text-sm text-deep-bronze-600 mb-4 leading-relaxed">
           Explore the rich cultural heritage of Dunhuang through AI-powered conversations about art, history, and spiritual legacy.
         </p>
-        <div className="flex items-center space-x-2 text-xs text-turquoise-blue-600 font-medium">
+        <div className="flex items-center space-x-2 text-xs text-cave-brown-600 font-medium">
           <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
             <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
           </svg>
@@ -73,7 +73,7 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
       {/* Topics Explorer */}
       <div>
         <h3 className="text-sm font-semibold text-deep-bronze-800 mb-4 flex items-center">
-          <Compass className="w-4 h-4 text-turquoise-blue-500 mr-2" />
+          <Compass className="w-4 h-4 text-cave-brown-500 mr-2" />
           Explore Topics
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -87,7 +87,7 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
                   ? "bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-cave-brown-300 hover:border-cave-brown-400" 
                   : index % 3 === 1
                   ? "bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-cave-brown-300 hover:border-cave-brown-400"
-                  : "bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-cave-brown-300 hover:border-cave-brown-400"
+                  : "bg-cave-brown-100/60 hover:bg-cave-brown-200 text-cave-brown-700 border border-cave-brown-300 hover:border-cave-brown-400"
               }`}
               onClick={() => onQuestionClick(topic.question)}
             >
