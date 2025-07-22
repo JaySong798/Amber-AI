@@ -1,4 +1,4 @@
-import { Bot, User, Info, Palette, Landmark, MessageSquare } from "lucide-react";
+import { Bot, User, Info, Palette, Landmark, MessageSquare, MessageCircle } from "lucide-react";
 import { ChatMessage, StructuredResponse } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 
