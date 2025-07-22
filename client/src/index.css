@@ -11,9 +11,9 @@
   --popover-foreground: hsl(20, 40%, 15%);
   --card: hsl(35, 20%, 93%);
   --card-foreground: hsl(20, 40%, 15%);
-  --border: hsl(186, 95%, 50%);
+  --border: hsl(30, 60%, 40%);
   --input: hsl(35, 15%, 92%);
-  --primary: hsl(186, 95%, 50%);
+  --primary: hsl(30, 60%, 40%);
   --primary-foreground: hsl(20, 40%, 15%);
   --secondary: hsl(42, 75%, 85%);
   --secondary-foreground: hsl(20, 40%, 15%);
@@ -21,7 +21,7 @@
   --accent-foreground: hsl(20, 40%, 15%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(20, 40%, 15%);
-  --ring: hsl(186, 95%, 50%);
+  --ring: hsl(30, 60%, 40%);
   --radius: 0.75rem;
 
   /* Tang Dynasty Deep Red */
@@ -43,14 +43,7 @@
   --imperial-gold-600: hsl(42, 95%, 45%);
   --imperial-gold-700: hsl(42, 90%, 35%);
 
-  /* Turquoise Blue */
-  --turquoise-blue-50: hsl(186, 85%, 95%);
-  --turquoise-blue-100: hsl(186, 80%, 90%);
-  --turquoise-blue-200: hsl(186, 75%, 82%);
-  --turquoise-blue-400: hsl(186, 90%, 65%);
-  --turquoise-blue-500: hsl(186, 95%, 50%);
-  --turquoise-blue-600: hsl(186, 90%, 40%);
-  --turquoise-blue-700: hsl(186, 85%, 30%);
+
 
   /* Warm Cream Base */
   --warm-cream-50: hsl(30, 40%, 97%);
@@ -85,9 +78,9 @@
   --popover-foreground: hsl(20, 40%, 15%);
   --card: hsl(20, 25%, 15%);
   --card-foreground: hsl(20, 40%, 15%);
-  --border: hsl(186, 95%, 50%);
+  --border: hsl(30, 60%, 40%);
   --input: hsl(20, 25%, 20%);
-  --primary: hsl(186, 95%, 50%);
+  --primary: hsl(30, 60%, 40%);
   --primary-foreground: hsl(20, 40%, 15%);
   --secondary: hsl(42, 60%, 25%);
   --secondary-foreground: hsl(20, 40%, 15%);
@@ -95,7 +88,7 @@
   --accent-foreground: hsl(20, 40%, 15%);
   --destructive: hsl(0, 75%, 60%);
   --destructive-foreground: hsl(20, 40%, 15%);
-  --ring: hsl(186, 95%, 50%);
+  --ring: hsl(30, 60%, 40%);
 }
 
 @layer base {
@@ -119,7 +112,7 @@
     background-image: 
       radial-gradient(circle at 25% 25%, hsl(42, 100%, 55%, 0.08) 3px, transparent 3px),
       radial-gradient(circle at 75% 75%, hsl(0, 80%, 50%, 0.06) 2px, transparent 2px),
-      radial-gradient(circle at 50% 50%, hsl(186, 95%, 50%, 0.04) 1px, transparent 1px);
+      radial-gradient(circle at 50% 50%, hsl(30, 60%, 40%, 0.04) 1px, transparent 1px);
     background-size: 50px 50px, 35px 35px, 20px 20px;
   }
 
@@ -134,7 +127,7 @@
     background-image: 
       linear-gradient(135deg, hsl(42, 80%, 90%, 0.4) 25%, transparent 25%),
       linear-gradient(-135deg, hsl(0, 60%, 92%, 0.3) 25%, transparent 25%),
-      linear-gradient(45deg, hsl(186, 75%, 95%, 0.2) 25%, transparent 25%),
+      linear-gradient(45deg, hsl(30, 35%, 90%, 0.2) 25%, transparent 25%),
       linear-gradient(-45deg, hsl(30, 35%, 92%, 0.3) 25%, transparent 25%);
     background-size: 25px 25px;
   }
@@ -149,7 +142,7 @@
 
   .suggestion-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px hsl(186, 90%, 50%, 0.15);
+    box-shadow: 0 8px 25px hsl(30, 60%, 40%, 0.15);
   }
 
   .loading-dots span {
