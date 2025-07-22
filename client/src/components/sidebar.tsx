@@ -32,14 +32,14 @@ const topics: Topic[] = [
 
 export function Sidebar({ onQuestionClick }: SidebarProps) {
   return (
-    <aside className="w-full lg:w-80 bg-card/90 backdrop-blur-sm border-r border-primary p-6 lg:sticky lg:top-16 lg:h-screen lg:overflow-y-auto">
+    <aside className="w-full lg:w-80 bg-card/90 backdrop-blur-sm border-r border-imperial-gold-200 p-6 lg:sticky lg:top-16 lg:h-screen lg:overflow-y-auto">
       {/* Welcome Section */}
-      <div className="mb-8 p-6 bg-secondary/60 border border-primary rounded-xl phoenix-pattern section-card">
-        <h2 className="text-lg font-semibold text-foreground mb-2">Welcome to Dunhuang</h2>
-        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+      <div className="mb-8 p-6 bg-imperial-gold-100/60 border border-imperial-gold-200 rounded-xl phoenix-pattern section-card">
+        <h2 className="text-lg font-semibold text-deep-bronze-800 mb-2">Welcome to Dunhuang</h2>
+        <p className="text-sm text-deep-bronze-600 mb-4 leading-relaxed">
           Explore the rich cultural heritage of Dunhuang through AI-powered conversations about art, history, and spiritual legacy.
         </p>
-        <div className="flex items-center space-x-2 text-xs text-primary font-medium">
+        <div className="flex items-center space-x-2 text-xs text-turquoise-blue-600 font-medium">
           <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
             <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
           </svg>
@@ -49,8 +49,8 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
       
       {/* Quick Start Questions */}
       <div className="mb-6">
-        <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center">
-          <Lightbulb className="w-4 h-4 text-accent mr-2" />
+        <h3 className="text-sm font-semibold text-deep-bronze-800 mb-4 flex items-center">
+          <Lightbulb className="w-4 h-4 text-imperial-gold-500 mr-2" />
           Quick Start Questions
         </h3>
         <div className="space-y-3">
@@ -58,12 +58,12 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
             <Button
               key={index}
               variant="ghost"
-              className="w-full text-left p-3 bg-muted/50 hover:bg-muted rounded-lg transition-all duration-200 suggestion-card h-auto justify-start border border-primary/50"
+              className="w-full text-left p-3 bg-warm-cream-200/40 hover:bg-warm-cream-300/60 hover:border-imperial-gold-300 rounded-lg transition-all duration-200 suggestion-card h-auto justify-start border border-imperial-gold-200/50"
               onClick={() => onQuestionClick(item.question)}
             >
               <div>
-                <p className="text-sm font-medium text-foreground">{item.question}</p>
-                <p className="text-xs text-muted-foreground mt-1">{item.description}</p>
+                <p className="text-sm font-medium text-deep-bronze-800">{item.question}</p>
+                <p className="text-xs text-deep-bronze-600 mt-1">{item.description}</p>
               </div>
             </Button>
           ))}
@@ -72,8 +72,8 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
       
       {/* Topics Explorer */}
       <div>
-        <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center">
-          <Compass className="w-4 h-4 text-primary mr-2" />
+        <h3 className="text-sm font-semibold text-deep-bronze-800 mb-4 flex items-center">
+          <Compass className="w-4 h-4 text-turquoise-blue-500 mr-2" />
           Explore Topics
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -82,12 +82,12 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
               key={topic.id}
               variant="ghost"
               size="sm"
-              className={`px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-all duration-200 h-auto border border-primary ${
+              className={`px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-all duration-200 h-auto ${
                 index % 3 === 0 
-                  ? "bg-accent/20 text-accent hover:bg-accent/30" 
+                  ? "bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-imperial-gold-300/50 hover:border-imperial-gold-400" 
                   : index % 3 === 1
-                  ? "bg-primary/20 text-primary hover:bg-primary/30"
-                  : "bg-secondary/60 text-foreground hover:bg-secondary"
+                  ? "bg-tang-red-100/60 hover:bg-tang-red-200 text-tang-red-700 border border-tang-red-200/50 hover:border-tang-red-300"
+                  : "bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-turquoise-blue-200/50 hover:border-turquoise-blue-300"
               }`}
               onClick={() => onQuestionClick(topic.question)}
             >
