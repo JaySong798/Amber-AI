@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(181, 83%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Amber AI Custom Colors */
+  --amber-50: hsl(39, 100%, 97%);
+  --amber-100: hsl(36, 100%, 92%);
+  --amber-400: hsl(43, 96%, 56%);
+  --amber-500: hsl(38, 92%, 50%);
+  --amber-600: hsl(32, 95%, 44%);
+  --amber-700: hsl(26, 90%, 37%);
+
+  /* Turquoise Custom Colors */
+  --turquoise-50: hsl(186, 100%, 94%);
+  --turquoise-100: hsl(185, 96%, 90%);
+  --turquoise-400: hsl(186, 90%, 54%);
+  --turquoise-500: hsl(186, 90%, 50%);
+  --turquoise-600: hsl(188, 95%, 44%);
+  --turquoise-700: hsl(191, 91%, 36%);
+
+  /* Navy Custom Colors */
+  --navy-600: hsl(225, 83%, 53%);
+  --navy-700: hsl(234, 89%, 74%);
+  --navy-800: hsl(224, 76%, 48%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(181, 83%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .hexagon-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(186, 90%, 50%, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(38, 92%, 50%, 0.1) 2px, transparent 2px);
+    background-size: 30px 30px;
+  }
+
+  .chat-message {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .suggestion-card:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+
+  .loading-dots span {
+    animation: pulseGentle 1.4s infinite ease-in-out;
+  }
+
+  .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+  .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0s; }
+}
+
+@layer utilities {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes pulseGentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Custom Amber and Turquoise utility classes */
+.bg-amber-custom-50 { background-color: hsl(var(--amber-50)); }
+.bg-amber-custom-100 { background-color: hsl(var(--amber-100)); }
+.bg-amber-custom-400 { background-color: hsl(var(--amber-400)); }
+.bg-amber-custom-500 { background-color: hsl(var(--amber-500)); }
+.bg-amber-custom-600 { background-color: hsl(var(--amber-600)); }
+.bg-amber-custom-700 { background-color: hsl(var(--amber-700)); }
+
+.bg-turquoise-custom-50 { background-color: hsl(var(--turquoise-50)); }
+.bg-turquoise-custom-100 { background-color: hsl(var(--turquoise-100)); }
+.bg-turquoise-custom-400 { background-color: hsl(var(--turquoise-400)); }
+.bg-turquoise-custom-500 { background-color: hsl(var(--turquoise-500)); }
+.bg-turquoise-custom-600 { background-color: hsl(var(--turquoise-600)); }
+.bg-turquoise-custom-700 { background-color: hsl(var(--turquoise-700)); }
+
+.bg-navy-custom-600 { background-color: hsl(var(--navy-600)); }
+.bg-navy-custom-700 { background-color: hsl(var(--navy-700)); }
+.bg-navy-custom-800 { background-color: hsl(var(--navy-800)); }
+
+.text-amber-custom-50 { color: hsl(var(--amber-50)); }
+.text-amber-custom-100 { color: hsl(var(--amber-100)); }
+.text-amber-custom-400 { color: hsl(var(--amber-400)); }
+.text-amber-custom-500 { color: hsl(var(--amber-500)); }
+.text-amber-custom-600 { color: hsl(var(--amber-600)); }
+.text-amber-custom-700 { color: hsl(var(--amber-700)); }
+
+.text-turquoise-custom-50 { color: hsl(var(--turquoise-50)); }
+.text-turquoise-custom-100 { color: hsl(var(--turquoise-100)); }
+.text-turquoise-custom-400 { color: hsl(var(--turquoise-400)); }
+.text-turquoise-custom-500 { color: hsl(var(--turquoise-500)); }
+.text-turquoise-custom-600 { color: hsl(var(--turquoise-600)); }
+.text-turquoise-custom-700 { color: hsl(var(--turquoise-700)); }
+
+.text-navy-custom-600 { color: hsl(var(--navy-600)); }
+.text-navy-custom-700 { color: hsl(var(--navy-700)); }
+.text-navy-custom-800 { color: hsl(var(--navy-800)); }
+
+.border-amber-custom-400 { border-color: hsl(var(--amber-400)); }
+.border-turquoise-custom-500 { border-color: hsl(var(--turquoise-500)); }
+.border-navy-custom-800 { border-color: hsl(var(--navy-800)); }
+
+.hover\:bg-amber-custom-200:hover { background-color: hsl(var(--amber-100)); }
+.hover\:bg-turquoise-custom-200:hover { background-color: hsl(var(--turquoise-100)); }
+.hover\:bg-turquoise-custom-600:hover { background-color: hsl(var(--turquoise-600)); }
+
+.focus\:ring-turquoise-custom-500:focus { 
+  --tw-ring-color: hsl(var(--turquoise-500));
+}
