@@ -80,22 +80,22 @@ function StructuredResponseComponent({
       {/* Introduction */}
       <div className="bg-warm-cream-100/70 border border-imperial-gold-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <Info className="w-4 h-4 text-imperial-gold-500 mr-2" />
-          <h4 className="font-semibold text-deep-bronze-800">Introduction</h4>
+          <Info className="w-4 h-4 text-imperial-gold-600 mr-2" />
+          <h4 className="font-semibold text-imperial-gold-700">Introduction</h4>
         </div>
-        <p className="text-sm text-deep-bronze-700 break-words leading-relaxed">{response.introduction}</p>
+        <p className="text-sm text-imperial-gold-800 break-words leading-relaxed">{response.introduction}</p>
       </div>
 
       {/* Artistic Features */}
-      <div className="bg-tang-red-100/60 border border-tang-red-200 rounded-lg p-4 section-card">
+      <div className="bg-turquoise-blue-50/80 border border-turquoise-blue-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
           <Palette className="w-4 h-4 text-turquoise-blue-600 mr-2" />
-          <h4 className="font-semibold text-deep-bronze-800">Artistic Features</h4>
+          <h4 className="font-semibold text-turquoise-blue-700">Artistic Features</h4>
         </div>
-        <div className="space-y-3 text-sm text-deep-bronze-700">
+        <div className="space-y-3 text-sm text-turquoise-blue-800">
           {response.artistic_features.map((feature, index) => (
             <div key={index} className="flex items-start space-x-2">
-              <span className="font-medium text-turquoise-blue-600 min-w-0">{feature.title}:</span>
+              <span className="font-medium text-turquoise-blue-700 min-w-0">{feature.title}:</span>
               <span className="break-words leading-relaxed">{feature.description}</span>
             </div>
           ))}
@@ -103,40 +103,40 @@ function StructuredResponseComponent({
       </div>
 
       {/* Historical Significance */}
-      <div className="bg-turquoise-blue-100/60 border border-turquoise-blue-200 rounded-lg p-4 section-card">
+      <div className="bg-deep-bronze-50/80 border border-deep-bronze-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <Landmark className="w-4 h-4 text-imperial-gold-600 mr-2" />
-          <h4 className="font-semibold text-deep-bronze-800">Historical Significance</h4>
+          <Landmark className="w-4 h-4 text-deep-bronze-600 mr-2" />
+          <h4 className="font-semibold text-deep-bronze-700">Historical Significance</h4>
         </div>
-        <p className="text-sm text-deep-bronze-700 break-words leading-relaxed">{response.historical_significance}</p>
+        <p className="text-sm text-deep-bronze-800 break-words leading-relaxed">{response.historical_significance}</p>
       </div>
 
       {/* Cultural Background */}
-      <div className="bg-imperial-gold-100/60 border border-imperial-gold-200 rounded-lg p-4 section-card">
+      <div className="bg-imperial-gold-50/80 border border-imperial-gold-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <MessageSquare className="w-4 h-4 text-turquoise-blue-600 mr-2" />
-          <h4 className="font-semibold text-deep-bronze-800">Cultural & Religious Background</h4>
+          <MessageSquare className="w-4 h-4 text-imperial-gold-600 mr-2" />
+          <h4 className="font-semibold text-imperial-gold-700">Cultural & Religious Background</h4>
         </div>
-        <p className="text-sm text-deep-bronze-700 break-words leading-relaxed">{response.cultural_background}</p>
+        <p className="text-sm text-imperial-gold-800 break-words leading-relaxed">{response.cultural_background}</p>
       </div>
 
       {/* Follow-up Questions */}
       {response.follow_up_questions.length > 0 && (
-        <div className="bg-warm-cream-100/50 border border-imperial-gold-200 rounded-lg p-4 section-card phoenix-pattern">
+        <div className="bg-turquoise-blue-50/60 border border-turquoise-blue-200 rounded-lg p-4 section-card phoenix-pattern">
           <div className="flex items-center mb-3">
-            <MessageSquare className="w-4 h-4 text-deep-bronze-700 mr-2" />
-            <h4 className="font-semibold text-deep-bronze-800">Explore Further</h4>
+            <MessageSquare className="w-4 h-4 text-turquoise-blue-600 mr-2" />
+            <h4 className="font-semibold text-turquoise-blue-700">Explore Further</h4>
           </div>
           <div className="space-y-2">
             {response.follow_up_questions.map((item, index) => (
               <Button
                 key={index}
                 variant="ghost"
-                className="block w-full text-left p-3 bg-warm-cream-100/50 border border-imperial-gold-200/50 rounded-lg hover:bg-warm-cream-200 hover:border-imperial-gold-300 transition-all duration-200 suggestion-card h-auto"
+                className="block w-full text-left p-3 bg-turquoise-blue-50/40 border border-turquoise-blue-200/50 rounded-lg hover:bg-turquoise-blue-100/60 hover:border-turquoise-blue-300 transition-all duration-200 suggestion-card h-auto"
                 onClick={() => onQuestionClick(item.question)}
               >
-                <span className="text-sm font-medium text-deep-bronze-800 block">{item.question}</span>
-                <span className="text-xs text-deep-bronze-600 mt-1 block">{item.description}</span>
+                <span className="text-sm font-medium text-turquoise-blue-800 block">{item.question}</span>
+                <span className="text-xs text-turquoise-blue-700 mt-1 block">{item.description}</span>
               </Button>
             ))}
           </div>
