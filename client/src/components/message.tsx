@@ -95,7 +95,7 @@ function StructuredResponseComponent({
         <div className="space-y-3 text-sm text-deep-bronze-700">
           {response.artistic_features.map((feature, index) => (
             <div key={index} className="flex items-start space-x-2">
-              <span className="font-medium text-tang-red-600 min-w-0">{feature.title}:</span>
+              <span className="font-medium text-turquoise-blue-600 min-w-0">{feature.title}:</span>
               <span className="break-words leading-relaxed">{feature.description}</span>
             </div>
           ))}

@@ -86,7 +86,7 @@ export function Sidebar({ onQuestionClick }: SidebarProps) {
                 index % 3 === 0 
                   ? "bg-warm-cream-200/60 hover:bg-warm-cream-300 text-deep-bronze-700 border border-imperial-gold-300/50 hover:border-imperial-gold-400" 
                   : index % 3 === 1
-                  ? "bg-tang-red-100/60 hover:bg-tang-red-200 text-tang-red-700 border border-tang-red-200/50 hover:border-tang-red-300"
+                  ? "bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-imperial-gold-200/50 hover:border-imperial-gold-300"
                   : "bg-turquoise-blue-100/60 hover:bg-turquoise-blue-200 text-turquoise-blue-700 border border-turquoise-blue-200/50 hover:border-turquoise-blue-300"
               }`}
               onClick={() => onQuestionClick(topic.question)}

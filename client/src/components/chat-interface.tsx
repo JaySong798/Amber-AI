@@ -213,7 +213,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-tang-red-100/60 hover:bg-tang-red-200 text-tang-red-700 border border-tang-red-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
+              className="px-3 py-1 bg-imperial-gold-100/60 hover:bg-imperial-gold-200 text-imperial-gold-700 border border-imperial-gold-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
               onClick={() => handleQuestionClick("Compare Tang and Song dynasty art styles")}
             >
               Tang vs Song styles
