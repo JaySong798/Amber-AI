@@ -1,0 +1,52 @@
+UI Design Prompt for Amber AI: Dunhuang Cultural Exploration Platform
+Project Name: Amber AI Platform Type: Web-based AI cultural learning platform
+
+Objective: Design a visually engaging, intuitive, and culturally rich user interface for Amber AI that helps users explore the art, calligraphy, and spiritual background of Dunhuang through AI interaction. The design should balance traditional Chinese aesthetics with modern, clean usability for both casual learners and cultural researchers.
+
+Main User Flow:
+	1	Home section – Introduction and “Start Exploring” button
+	2	Question Input Section – User types a general/specific question
+	3	AI Response Section – Response presented in multiple logical sections
+	4	Follow-up Questions Section – Suggested questions + clickable answers
+	5	Settings/Language Section – English / 中文
+
+Visual Style Guidelines:
+	•	Theme: Inspired by Dunhuang art (e.g., cave murals, silk road elements, Buddhist motifs)
+	•	Color palette:
+	◦	Earth tones: terracotta, sand beige, cave brown
+	◦	Accent colors: turquoise blue, lotus pink, gold
+	◦	Do not use gradient colors.
+	•	Typography:
+	◦	Elegant, serif or brush-style font for headers (e.g., for Chinese calligraphy flavor)
+	◦	Clean sans-serif for body text
+	•	Imagery: Subtle background patterns inspired by fresco motifs, lotus, or apsaras
+
+Key Components to Include:
+	1	Header:
+	◦	Logo: Amber AI
+	◦	Navigation: Home | About | Explore | Language toggle (EN/中文)
+	2	Homepage Hero Section:
+	◦	Background image of Dunhuang cave art (faded, elegant)
+	◦	Title: “Discover Dunhuang through the Power of AI”
+	◦	Button: “Start Exploring”
+	3	Chat/QA Interface:
+	◦	User Input Box (placeholder: “Ask about Dunhuang frescoes, scripts, or stories...”)
+	◦	Response container divided into:
+	▪	Introduction
+	▪	Artistic Features
+	▪	Historical Significance
+	▪	Cultural Background
+	▪	Follow-Up Suggestions
+	4	Response Enhancements:
+	◦	Icons for each section
+	◦	Scrollable layout or tabs for sections
+	◦	Smooth animations and section transitions
+	◦	Expand/collapse for long texts
+	5	Footer:
+	◦	Contact | Credits | Links to cultural archives | Acknowledgments
+
+Design Goals:
+	•	Make users feel immersed in traditional Chinese art, yet not overwhelmed
+	•	Ensure layout is responsive for mobile and desktop
+	•	Content-focused but not text-heavy in appearance
+	•	Blend modern AI interactivity with traditional cultural tone

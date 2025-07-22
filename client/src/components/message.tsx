@@ -27,12 +27,12 @@ export function Message({ message, onQuestionClick }: MessageProps) {
       <div className="chat-message">
         <div className="flex items-start space-x-3 justify-end">
           <div className="flex-1 flex flex-col items-end">
-            <div className="bg-turquoise-custom-500 text-white rounded-lg p-4 max-w-md">
+            <div className="bg-turquoise-500 text-white rounded-lg p-4 max-w-md shadow-sm border border-turquoise-400/20">
               <p className="text-sm break-words leading-relaxed">{message.content}</p>
             </div>
-            <span className="text-xs text-gray-500 mt-1">You • {formatTime(message.timestamp)}</span>
+            <span className="text-xs text-cave-brown-500 mt-1 font-medium">You • {formatTime(message.timestamp)}</span>
           </div>
-          <div className="w-8 h-8 bg-turquoise-custom-500 rounded-full flex items-center justify-center flex-shrink-0">
+          <div className="w-8 h-8 bg-turquoise-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
             <User className="w-4 h-4 text-white" />
           </div>
         </div>
@@ -45,7 +45,7 @@ export function Message({ message, onQuestionClick }: MessageProps) {
   return (
     <div className="chat-message">
       <div className="flex items-start space-x-3">
-        <div className="w-8 h-8 bg-gradient-to-br from-amber-custom-400 to-turquoise-custom-500 rounded-full flex items-center justify-center flex-shrink-0">
+        <div className="w-8 h-8 bg-gradient-to-br from-terracotta-500 to-turquoise-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
           <Bot className="w-4 h-4 text-white" />
         </div>
         <div className="flex-1">
@@ -55,11 +55,11 @@ export function Message({ message, onQuestionClick }: MessageProps) {
               onQuestionClick={onQuestionClick}
             />
           ) : (
-            <div className="bg-gray-50 rounded-lg p-4">
-              <p className="text-sm text-gray-700 break-words leading-relaxed">{message.content}</p>
+            <div className="bg-sand-100/80 border border-sand-200 rounded-lg p-4 section-card">
+              <p className="text-sm text-cave-brown-700 break-words leading-relaxed">{message.content}</p>
             </div>
           )}
-          <span className="text-xs text-gray-500 mt-2 block">
+          <span className="text-xs text-cave-brown-500 mt-2 block font-medium">
             Amber AI • {formatTime(message.timestamp)}
           </span>
         </div>
@@ -78,24 +78,24 @@ function StructuredResponseComponent({
   return (
     <div className="space-y-4">
       {/* Introduction */}
-      <div className="bg-gray-50 rounded-lg p-4">
+      <div className="bg-sand-100/70 border border-sand-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <Info className="w-4 h-4 text-amber-custom-500 mr-2" />
-          <h4 className="font-semibold text-navy-custom-800">Introduction</h4>
+          <Info className="w-4 h-4 text-gold-500 mr-2" />
+          <h4 className="font-semibold text-cave-brown-800">Introduction</h4>
         </div>
-        <p className="text-sm text-gray-700 break-words leading-relaxed">{response.introduction}</p>
+        <p className="text-sm text-cave-brown-700 break-words leading-relaxed">{response.introduction}</p>
       </div>
 
       {/* Artistic Features */}
-      <div className="bg-amber-custom-50 rounded-lg p-4">
+      <div className="bg-terracotta-100/60 border border-terracotta-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <Palette className="w-4 h-4 text-turquoise-custom-600 mr-2" />
-          <h4 className="font-semibold text-navy-custom-800">Artistic Features</h4>
+          <Palette className="w-4 h-4 text-turquoise-600 mr-2" />
+          <h4 className="font-semibold text-cave-brown-800">Artistic Features</h4>
         </div>
-        <div className="space-y-3 text-sm text-gray-700">
+        <div className="space-y-3 text-sm text-cave-brown-700">
           {response.artistic_features.map((feature, index) => (
             <div key={index} className="flex items-start space-x-2">
-              <span className="font-medium text-amber-custom-600 min-w-0">{feature.title}:</span>
+              <span className="font-medium text-terracotta-600 min-w-0">{feature.title}:</span>
               <span className="break-words leading-relaxed">{feature.description}</span>
             </div>
           ))}
@@ -103,40 +103,40 @@ function StructuredResponseComponent({
       </div>
 
       {/* Historical Significance */}
-      <div className="bg-turquoise-custom-50 rounded-lg p-4">
+      <div className="bg-turquoise-100/60 border border-turquoise-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <Landmark className="w-4 h-4 text-amber-custom-600 mr-2" />
-          <h4 className="font-semibold text-navy-custom-800">Historical Significance</h4>
+          <Landmark className="w-4 h-4 text-gold-600 mr-2" />
+          <h4 className="font-semibold text-cave-brown-800">Historical Significance</h4>
         </div>
-        <p className="text-sm text-gray-700 break-words leading-relaxed">{response.historical_significance}</p>
+        <p className="text-sm text-cave-brown-700 break-words leading-relaxed">{response.historical_significance}</p>
       </div>
 
       {/* Cultural Background */}
-      <div className="bg-gray-50 rounded-lg p-4">
+      <div className="bg-gold-100/60 border border-gold-200 rounded-lg p-4 section-card">
         <div className="flex items-center mb-3">
-          <MessageSquare className="w-4 h-4 text-turquoise-custom-600 mr-2" />
-          <h4 className="font-semibold text-navy-custom-800">Cultural & Religious Background</h4>
+          <MessageSquare className="w-4 h-4 text-turquoise-600 mr-2" />
+          <h4 className="font-semibold text-cave-brown-800">Cultural & Religious Background</h4>
         </div>
-        <p className="text-sm text-gray-700 break-words leading-relaxed">{response.cultural_background}</p>
+        <p className="text-sm text-cave-brown-700 break-words leading-relaxed">{response.cultural_background}</p>
       </div>
 
       {/* Follow-up Questions */}
       {response.follow_up_questions.length > 0 && (
-        <div className="bg-gradient-to-r from-amber-custom-50 to-turquoise-custom-50 rounded-lg p-4">
+        <div className="bg-lotus-100/50 border border-lotus-200 rounded-lg p-4 section-card lotus-pattern">
           <div className="flex items-center mb-3">
-            <MessageSquare className="w-4 h-4 text-navy-custom-700 mr-2" />
-            <h4 className="font-semibold text-navy-custom-800">Explore Further</h4>
+            <MessageSquare className="w-4 h-4 text-cave-brown-700 mr-2" />
+            <h4 className="font-semibold text-cave-brown-800">Explore Further</h4>
           </div>
           <div className="space-y-2">
             {response.follow_up_questions.map((item, index) => (
               <Button
                 key={index}
                 variant="ghost"
-                className="block w-full text-left p-2 bg-white rounded-md hover:bg-gray-50 transition-colors suggestion-card h-auto"
+                className="block w-full text-left p-3 bg-sand-100/50 border border-sand-200/50 rounded-lg hover:bg-sand-200 transition-all duration-200 suggestion-card h-auto"
                 onClick={() => onQuestionClick(item.question)}
               >
-                <span className="text-sm font-medium text-navy-custom-800 block">{item.question}</span>
-                <span className="text-xs text-gray-500 mt-1 block">{item.description}</span>
+                <span className="text-sm font-medium text-cave-brown-800 block">{item.question}</span>
+                <span className="text-xs text-cave-brown-600 mt-1 block">{item.description}</span>
               </Button>
             ))}
           </div>

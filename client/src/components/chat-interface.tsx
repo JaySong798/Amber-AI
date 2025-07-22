@@ -97,56 +97,56 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
   };
 
   return (
-    <main className="flex-1 flex flex-col bg-white">
+    <main className="flex-1 flex flex-col bg-card/50">
       {/* Chat Header */}
-      <div className="border-b border-gray-200 p-4 lg:p-6 bg-gradient-to-r from-amber-custom-50 to-turquoise-custom-50">
+      <div className="border-b border-sand-200 p-4 lg:p-6 bg-sand-100/40 fresco-texture backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-navy-custom-800">Dunhuang Cultural Explorer</h2>
-            <p className="text-sm text-gray-600">Ask me anything about Dunhuang art, history, and culture</p>
+            <h2 className="text-lg font-semibold text-cave-brown-800">Dunhuang Cultural Explorer</h2>
+            <p className="text-sm text-cave-brown-600">Ask me anything about Dunhuang art, history, and culture</p>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-gray-500">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span>AI Ready</span>
+          <div className="flex items-center space-x-2 text-xs text-cave-brown-500">
+            <div className="w-2 h-2 bg-turquoise-400 rounded-full animate-pulse"></div>
+            <span className="font-medium">AI Ready</span>
           </div>
         </div>
       </div>
       
       {/* Chat Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 lg:p-6 space-y-6 scroll-smooth">
+      <div className="flex-1 overflow-y-auto p-4 lg:p-6 space-y-6 scroll-smooth bg-sand-50/30 dunhuang-pattern">
         {/* Welcome Message */}
         <div className="chat-message">
           <div className="flex items-start space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-amber-custom-400 to-turquoise-custom-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 bg-gradient-to-br from-terracotta-500 to-turquoise-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
               <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
               </svg>
             </div>
             <div className="flex-1">
-              <div className="bg-gray-50 rounded-lg p-4">
+              <div className="bg-sand-100/80 border border-sand-200 rounded-lg p-4 section-card">
                 <div className="break-words leading-relaxed">
-                  <p className="text-sm text-gray-700">Welcome! I'm your AI guide to the magnificent world of Dunhuang. I can help you explore:</p>
-                  <ul className="mt-3 space-y-1 text-sm text-gray-600">
+                  <p className="text-sm text-cave-brown-700 font-medium">Welcome! I'm your AI guide to the magnificent world of Dunhuang. I can help you explore:</p>
+                  <ul className="mt-3 space-y-1 text-sm text-cave-brown-600">
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-custom-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-turquoise-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Cave frescoes and their meanings
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-custom-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-turquoise-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Calligraphy styles and techniques
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-custom-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-turquoise-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Historical context and cultural significance
                     </li>
                     <li className="flex items-center">
-                      <svg className="w-3 h-3 text-turquoise-custom-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 text-turquoise-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       Buddhist and religious symbolism
@@ -154,7 +154,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
                   </ul>
                 </div>
               </div>
-              <span className="text-xs text-gray-500 mt-1 block">Amber AI • Just now</span>
+              <span className="text-xs text-cave-brown-500 mt-1 block font-medium">Amber AI • Just now</span>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
       </div>
       
       {/* Chat Input Area */}
-      <div className="border-t border-gray-200 p-4 lg:p-6 bg-white">
+      <div className="border-t border-sand-200 p-4 lg:p-6 bg-card/95 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="flex items-end space-x-3">
             <div className="flex-1">
@@ -185,7 +185,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
                 rows={1}
-                className="resize-none min-h-[48px] max-h-[120px] border-gray-300 focus:ring-2 focus:ring-turquoise-custom-500 focus:border-transparent"
+                className="resize-none min-h-[48px] max-h-[120px] border-sand-300 bg-sand-100/50 text-cave-brown-800 placeholder:text-cave-brown-500 focus:ring-2 focus:ring-turquoise-500 focus:border-turquoise-500"
                 placeholder="Ask me about Dunhuang art, history, or culture..."
                 disabled={sendMessage.isPending}
               />
@@ -193,7 +193,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button 
               type="submit" 
               disabled={!input.trim() || sendMessage.isPending}
-              className="bg-turquoise-custom-500 hover:bg-turquoise-custom-600 text-white px-6 py-3 focus:ring-2 focus:ring-turquoise-custom-500 focus:ring-offset-2"
+              className="bg-turquoise-500 hover:bg-turquoise-600 text-white px-6 py-3 shadow-sm focus:ring-2 focus:ring-turquoise-500 focus:ring-offset-2"
             >
               <Send className="w-4 h-4 mr-2 sm:mr-0" />
               <span className="hidden sm:inline">Send</span>
@@ -205,7 +205,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-xs h-auto"
+              className="px-3 py-1 bg-sand-200/60 hover:bg-sand-300 text-cave-brown-700 border border-sand-300/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
               onClick={() => handleQuestionClick("Explain Buddhist symbolism in Cave 17")}
             >
               Cave 17 symbolism
@@ -213,7 +213,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-xs h-auto"
+              className="px-3 py-1 bg-terracotta-100/60 hover:bg-terracotta-200 text-terracotta-700 border border-terracotta-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
               onClick={() => handleQuestionClick("Compare Tang and Song dynasty art styles")}
             >
               Tang vs Song styles
@@ -221,14 +221,14 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
             <Button
               variant="ghost"
               size="sm"
-              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-xs h-auto"
+              className="px-3 py-1 bg-turquoise-100/60 hover:bg-turquoise-200 text-turquoise-700 border border-turquoise-200/50 rounded-full text-xs h-auto font-medium transition-all duration-200"
               onClick={() => handleQuestionClick("What is the Library Cave discovery?")}
             >
               Library Cave
             </Button>
           </div>
           
-          <p className="text-xs text-gray-500 mt-3 text-center flex items-center justify-center">
+          <p className="text-xs text-cave-brown-500 mt-3 text-center flex items-center justify-center font-medium">
             <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
