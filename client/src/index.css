@@ -244,12 +244,26 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    font-family: 'Inter', 'Noto Serif SC', serif, system-ui, sans-serif;
+    font-family: 'Noto Serif SC', 'Georgia', 'Times New Roman', serif;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', 'Noto Serif SC', serif, system-ui;
+    font-family: 'Noto Serif SC', 'Playfair Display', serif;
     font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .serif-title {
+    font-family: 'Noto Serif SC', 'Times New Roman', serif;
+    letter-spacing: 0.05em;
+  }
+
+  .seal-script {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
   }
 }
 
