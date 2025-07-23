@@ -54,6 +54,9 @@ CRITICAL REQUIREMENTS:
 - Stay under 50 words (part of 500 word total limit)
 - Make each sentence vivid and impactful
 - Capture the essence without lengthy descriptions
+- If the user's question is about a specific topic of dunhuang, introduce that topic first rather than a staring with introductory information about dunhuang itself.
+- If the user does not specify a topic, start with a general introduction to dunhuang
+- If the user type in sth like a greeting or a casual question, start with a friendly greeting and then introduce dunhuang.
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
@@ -100,6 +103,9 @@ Focus ONLY on visual artistic details:
 - Sculptural techniques and carving methods
 - Iconographic symbols and their visual representations
 - Decorative patterns and artistic motifs
+- Architectural elements and deisgn features
+- Calligraphy styles, structure, stokes, and ink usage
+
 
 Avoid mentioning: historical periods, dynasties, cultural background, religious context, or general introductions.
 
@@ -161,6 +167,8 @@ Focus ONLY on historical facts and chronology:
 - Archaeological discoveries and documentation
 - Historical figures and their specific contributions
 - Timeline of development and changes
+- Reflection of the chararcteristics of the society's political, economic, artistic, and cultural development
+- Do not mention the specific time periods of the dynasties (e.g., 300-400 AD)
 
 Avoid mentioning: artistic techniques, visual descriptions, religious practices, or cultural meanings.
 
