@@ -75,7 +75,7 @@
 .response-introduction {
   background: white;
   color: black;
-  border: 3px solid var(--dark-turquoise-500);
+  border: 3px solid #FFD700;
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -85,7 +85,7 @@
 .response-artistic-features {
   background: white;
   color: black;
-  border: 3px solid var(--dark-turquoise-500);
+  border: 3px solid #FFD700;
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -95,7 +95,7 @@
 .response-historical-significance {
   background: white;
   color: black;
-  border: 3px solid var(--dark-turquoise-500);
+  border: 3px solid #FFD700;
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -105,7 +105,7 @@
 .response-cultural-background {
   background: white;
   color: black;
-  border: 3px solid var(--dark-turquoise-500);
+  border: 3px solid #FFD700;
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -115,7 +115,7 @@
 .response-follow-up-questions {
   background: white;
   color: black;
-  border: 3px solid var(--dark-turquoise-500);
+  border: 3px solid #FFD700;
   border-radius: 0.5rem;
   padding: 1.25rem;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
