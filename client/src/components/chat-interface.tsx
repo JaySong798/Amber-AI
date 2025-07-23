@@ -100,7 +100,7 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
   return (
     <main className="flex-1 flex flex-col bg-neutral-50">
       {/* Chat Header */}
-      <div className="border-b border-neutral-200 p-6 bg-white shadow-sm">
+      <div className="border-b border-neutral-200 bg-white shadow-sm" style={{ padding: '24px 24px 26px' }}>
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <img 
