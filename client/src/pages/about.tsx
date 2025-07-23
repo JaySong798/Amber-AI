@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { Globe, Brain, Users, Cog, Star, ExternalLink } from "lucide-react";
 import { Navigation } from "@/components/navigation";
+import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
-  const [language, setLanguage] = useState("en");
+  const { language } = useLanguage();
 
   const content = {
     en: {
@@ -222,7 +222,7 @@ export default function About() {
     },
     {
       name: "图像链接",
-      description: "真��的历史图像参考（链接，不直接显示）",
+      description: "真实的历史图像参考（链接，不直接显示）",
       example: "展示观音的壁画。",
       icon: <ExternalLink className="w-5 h-5" />
     },
@@ -244,7 +244,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-paper-beige-50 to-buddha-gold-50">
-      <Navigation language={language} setLanguage={setLanguage} />
+      <Navigation />
       
       <main className="pt-8 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
