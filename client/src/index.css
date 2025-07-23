@@ -328,6 +328,50 @@
   50% { opacity: 0.7; }
 }
 
+/* Dunhuang Theme Color Utilities */
+.bg-seal-red-50 { background-color: hsl(var(--seal-red-50)); }
+.bg-seal-red-100 { background-color: hsl(var(--seal-red-100)); }
+.bg-seal-red-200 { background-color: hsl(var(--seal-red-200)); }
+.bg-seal-red-400 { background-color: hsl(var(--seal-red-400)); }
+.bg-seal-red-500 { background-color: hsl(var(--seal-red-500)); }
+.bg-seal-red-600 { background-color: hsl(var(--seal-red-600)); }
+.bg-seal-red-700 { background-color: hsl(var(--seal-red-700)); }
+.bg-seal-red-800 { background-color: hsl(var(--seal-red-800)); }
+
+.text-seal-red-400 { color: hsl(var(--seal-red-400)); }
+.text-seal-red-500 { color: hsl(var(--seal-red-500)); }
+.text-seal-red-600 { color: hsl(var(--seal-red-600)); }
+.text-seal-red-700 { color: hsl(var(--seal-red-700)); }
+
+.bg-buddha-gold-50 { background-color: hsl(var(--buddha-gold-50)); }
+.bg-buddha-gold-100 { background-color: hsl(var(--buddha-gold-100)); }
+.bg-buddha-gold-200 { background-color: hsl(var(--buddha-gold-200)); }
+.bg-buddha-gold-400 { background-color: hsl(var(--buddha-gold-400)); }
+.bg-buddha-gold-500 { background-color: hsl(var(--buddha-gold-500)); }
+.bg-buddha-gold-600 { background-color: hsl(var(--buddha-gold-600)); }
+
+.text-buddha-gold-400 { color: hsl(var(--buddha-gold-400)); }
+.text-buddha-gold-500 { color: hsl(var(--buddha-gold-500)); }
+.text-buddha-gold-600 { color: hsl(var(--buddha-gold-600)); }
+
+.bg-cave-turquoise-50 { background-color: hsl(var(--cave-turquoise-50)); }
+.bg-cave-turquoise-100 { background-color: hsl(var(--cave-turquoise-100)); }
+.bg-cave-turquoise-200 { background-color: hsl(var(--cave-turquoise-200)); }
+.bg-cave-turquoise-400 { background-color: hsl(var(--cave-turquoise-400)); }
+.bg-cave-turquoise-500 { background-color: hsl(var(--cave-turquoise-500)); }
+.bg-cave-turquoise-600 { background-color: hsl(var(--cave-turquoise-600)); }
+
+.text-cave-turquoise-700 { color: hsl(var(--cave-turquoise-700)); }
+.text-cave-turquoise-800 { color: hsl(var(--cave-turquoise-800)); }
+
+.bg-paper-beige-50 { background-color: hsl(var(--paper-beige-50)); }
+.bg-paper-beige-100 { background-color: hsl(var(--paper-beige-100)); }
+.bg-paper-beige-200 { background-color: hsl(var(--paper-beige-200)); }
+
+.border-buddha-gold-200 { border-color: hsl(var(--buddha-gold-200)); }
+.border-buddha-gold-300 { border-color: hsl(var(--buddha-gold-300)); }
+.border-seal-red-400 { border-color: hsl(var(--seal-red-400)); }
+
 /* Tang Dynasty Color Utilities */
 .bg-tang-red-50 { background-color: hsl(var(--tang-red-50)); }
 .bg-tang-red-100 { background-color: hsl(var(--tang-red-100)); }
