@@ -51,7 +51,7 @@ Generate a concise introduction that serves as a gateway into the world of Dunhu
 
 CRITICAL REQUIREMENTS:
 - MAXIMUM 3-5 sentences only
-- Stay under 200 tokens
+- Stay under 150 tokens (part of 1500 token total limit)
 - Make each sentence vivid and impactful
 - Capture the essence without lengthy descriptions
 
@@ -70,7 +70,7 @@ Write as if providing a captivating but brief introduction. Maximum 3-5 sentence
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 200,
+    max_tokens: 150,
   });
 
   return response.choices[0].message.content || "";
@@ -84,7 +84,7 @@ Based on this introduction: "${introduction}"
 Generate ONLY artistic and visual details that expand on the artistic elements mentioned in the introduction.
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 1000 tokens
+- MAXIMUM 300 tokens (part of 1500 token total limit)
 - Stay concise while being informative
 - Focus exclusively on concrete visual elements, techniques, and artistic characteristics
 - Do not repeat general information about locations, time periods, or cultural background
@@ -117,7 +117,7 @@ Provide a JSON object with this exact format:
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" },
     temperature: 0.7,
-    max_tokens: 600,
+    max_tokens: 300,
   });
 
   const content = response.choices[0].message.content;
@@ -140,7 +140,7 @@ Based on this introduction: "${introduction}"
 Generate ONLY historical context and chronological details that expand on the historical elements mentioned in the introduction. 
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 1000 tokens
+- MAXIMUM 300 tokens (part of 1500 token total limit)
 - Stay concise while being informative
 - Focus exclusively on dates, dynasties, events, and historical developments
 - Do not repeat artistic details, cultural practices, or general background information
@@ -165,7 +165,7 @@ Provide only the historical significance text (no JSON, no additional formatting
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 600,
+    max_tokens: 300,
   });
 
   return response.choices[0].message.content || "";
@@ -179,7 +179,7 @@ Based on this introduction: "${introduction}"
 Generate ONLY cultural and religious context that expands on the spiritual elements mentioned in the introduction.
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 1000 tokens
+- MAXIMUM 300 tokens (part of 1500 token total limit)
 - Stay concise while being informative
 - Focus exclusively on beliefs, practices, and spiritual meanings
 - Do not repeat historical dates, artistic techniques, or general background information
@@ -205,7 +205,7 @@ Provide only the cultural background text (no JSON, no additional formatting).`;
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 600,
+    max_tokens: 300,
   });
 
   return response.choices[0].message.content || "";
@@ -223,7 +223,7 @@ Cultural Background: "${sectionsContent.cultural_background}"
 Generate short, concise follow-up questions (maximum 8-10 words each) that build directly from the specific content covered in these sections.
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 1000 tokens for this entire section
+- MAXIMUM 200 tokens for this entire section (part of 1500 token total limit)
 - Each question maximum 8-10 words
 - Stay focused on specific content mentioned
 
@@ -251,7 +251,7 @@ Provide a JSON object with this exact format:
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" },
     temperature: 0.8,
-    max_tokens: 600,
+    max_tokens: 200,
   });
 
   const content = response.choices[0].message.content;
@@ -271,6 +271,10 @@ export async function generateDunhuangResponse(
   language: string = "en"
 ): Promise<DunhuangResponse> {
   try {
+    // CRITICAL: Entire response must stay under 1500 tokens total
+    // Introduction: ~150 tokens, Other sections: ~250 tokens each, Questions: ~200 tokens
+    console.log("Generating response with 1500 token limit for:", userMessage);
+    
     // First generate the introduction
     const introduction = await generateIntroduction(userMessage, language);
     
@@ -303,6 +307,7 @@ export async function generateDunhuangResponse(
       follow_up_questions: Array.isArray(follow_up_questions) ? follow_up_questions : []
     };
 
+    console.log("Response generated within 1500 token limit");
     return normalizedResponse;
   } catch (error) {
     console.error("OpenAI API error:", error);
