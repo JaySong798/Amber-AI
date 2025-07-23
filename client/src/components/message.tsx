@@ -81,7 +81,7 @@ function StructuredResponseComponent({
       <div className="response-introduction">
         <div className="response-section-header">
           <Info className="response-section-icon" />
-          <h4 className="response-section-title">Overview</h4>
+          <h4 className="response-section-title">Introduction</h4>
         </div>
         <div className="response-section-content">
           <p className="break-words">{response.introduction}</p>
@@ -93,7 +93,7 @@ function StructuredResponseComponent({
         <div className="response-artistic-features">
           <div className="response-section-header">
             <Palette className="response-section-icon" />
-            <h4 className="response-section-title">Visual Elements</h4>
+            <h4 className="response-section-title">Artistic Features</h4>
           </div>
           <div className="response-section-content">
             <div className="space-y-3">
@@ -111,7 +111,7 @@ function StructuredResponseComponent({
         <div className="response-cultural-background">
           <div className="response-section-header">
             <MessageSquare className="response-section-icon" />
-            <h4 className="response-section-title">Cultural Context</h4>
+            <h4 className="response-section-title">Cultural Story</h4>
           </div>
           <div className="response-section-content">
             <p className="break-words text-sm">{response.cultural_background}</p>
@@ -123,7 +123,7 @@ function StructuredResponseComponent({
       <div className="response-historical-significance">
         <div className="response-section-header">
           <Landmark className="response-section-icon" />
-          <h4 className="response-section-title">Historical Timeline</h4>
+          <h4 className="response-section-title">Historical Significance</h4>
         </div>
         <div className="response-section-content">
           <p className="break-words">{response.historical_significance}</p>
@@ -135,7 +135,7 @@ function StructuredResponseComponent({
         <div className="response-follow-up-questions">
           <div className="response-section-header">
             <MessageCircle className="response-section-icon" />
-            <h4 className="response-section-title">Continue Exploring</h4>
+            <h4 className="response-section-title">Explore More</h4>
           </div>
           <div className="response-section-content">
             <div className="grid gap-2 sm:grid-cols-2">
