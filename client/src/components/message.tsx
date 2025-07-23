@@ -27,8 +27,8 @@ export function Message({ message, onQuestionClick }: MessageProps) {
       <div className="chat-message">
         <div className="flex items-start space-x-3 justify-end">
           <div className="flex-1 flex flex-col items-end">
-            <div className="bg-white border-2 border-dark-turquoise-500 rounded p-3 max-w-sm shadow-sm">
-              <p className="text-sm text-dark-turquoise-700 break-words leading-relaxed">{message.content}</p>
+            <div className="bg-dark-turquoise-500 border-2 border-dark-turquoise-600 rounded p-3 max-w-sm shadow-sm">
+              <p className="text-sm text-white break-words leading-relaxed">{message.content}</p>
             </div>
             <span className="text-xs text-dark-turquoise-600 mt-1 font-medium">You • {formatTime(message.timestamp)}</span>
           </div>
