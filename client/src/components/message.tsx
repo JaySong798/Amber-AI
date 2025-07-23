@@ -107,14 +107,21 @@ function StructuredResponseComponent({
           </div>
         </div>
 
-        {/* Cultural Background */}
+        {/* Cultural Stories */}
         <div className="response-cultural-background">
           <div className="response-section-header">
             <MessageSquare className="response-section-icon" />
-            <h4 className="response-section-title">Cultural Story</h4>
+            <h4 className="response-section-title">Cultural Stories</h4>
           </div>
           <div className="response-section-content">
-            <p className="break-words text-sm">{response.cultural_background}</p>
+            <div className="space-y-3">
+              {response.cultural_stories.map((story, index) => (
+                <div key={index} className="bg-white border-2 border-dark-turquoise-400 rounded p-3">
+                  <h5 className="font-medium text-sm mb-1 text-black">{story.title}</h5>
+                  <p className="text-xs text-black break-words">{story.story}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

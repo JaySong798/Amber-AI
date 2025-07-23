@@ -12,7 +12,10 @@ export interface DunhuangResponse {
     description: string;
   }>;
   historical_significance: string;
-  cultural_background: string;
+  cultural_stories: Array<{
+    title: string;
+    story: string;
+  }>;
   follow_up_questions: Array<{
     question: string;
     description: string;
@@ -187,45 +190,63 @@ Provide only the historical significance text (no JSON, no additional formatting
   return response.choices[0].message.content || "";
 }
 
-async function generateCulturalBackground(introduction: string, language: string): Promise<string> {
+async function generateCulturalStories(introduction: string, language: string): Promise<Array<{title: string, story: string}>> {
   const prompt = `${DUNHUANG_STYLE_GUIDE}
 
 Based on this introduction: "${introduction}"
 
-Generate ONLY cultural and religious context that expands on the spiritual elements mentioned in the introduction.
+Generate exactly 3 cultural stories related to the topic, each as a separate tale, mythology, or folktale from Buddhist culture or Chinese folklore.
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 85 words (part of 500 word total limit)
-- Stay concise while being informative
-- Focus exclusively on beliefs, practices, and spiritual meanings
-- Do not repeat historical dates, artistic techniques, or general background information
+- MAXIMUM 85 words total across all 3 stories (part of 500 word total limit)
+- Each story should be ~28 words maximum
+- Focus on tales, mythologies, folktales from Buddhist culture or Chinese folklore
+- Each story must have a distinct title and narrative
+- Ensure JSON is properly formatted and complete
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Focus ONLY on cultural and spiritual aspects:
-- Buddhist teachings and specific doctrines
-- Religious ceremonies and ritual practices
-- Spiritual symbolism and sacred meanings
-- Monastic life and religious communities
-- Pilgrimage traditions and devotional practices
-- Cultural fusion and religious syncretism
-- Sacred stories and spiritual narratives
+Create 3 distinct cultural stories:
+- Buddhist legends and spiritual tales
+- Chinese folktales and mythologies
+- Cultural legends connected to Dunhuang or the topic
+- Stories about spiritual journeys and transformations
+- Tales of cultural heroes and wisdom
 
-Avoid mentioning: specific dates, dynasties, artistic techniques, or visual descriptions.
+Each story should be a complete mini-narrative with beginning, middle, and end.
+End each story with a concluding sentence that captures the story's essence with a full stop.
 
-Write as if explaining the spiritual heart and soul behind the subject, focusing purely on beliefs and practices.
-End with a concluding sentence that summarizes the cultural story with a full stop.
-
-Provide only the cultural background text (no JSON, no additional formatting).`;
+Provide a JSON object with this exact format (ensure complete, valid JSON):
+{
+  "stories": [
+    {"title": "Story Title 1", "story": "Complete cultural story or tale with concluding sentence."},
+    {"title": "Story Title 2", "story": "Complete cultural story or tale with concluding sentence."},
+    {"title": "Story Title 3", "story": "Complete cultural story or tale with concluding sentence."}
+  ]
+}`;
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" },
     temperature: 0.7,
     max_tokens: 250, // ~85 words
   });
 
-  return response.choices[0].message.content || "";
+  const content = response.choices[0].message.content;
+  if (!content) return [];
+  
+  try {
+    const parsed = JSON.parse(content);
+    return parsed.stories || [];
+  } catch (error) {
+    console.error("Error parsing cultural stories JSON:", error);
+    console.error("Raw content:", content);
+    // Return fallback structure if JSON parsing fails
+    return [
+      { title: "Cultural Tales", story: "Cultural stories will be displayed here." }
+    ];
+  }
 }
 
 async function generateFollowUpQuestions(sectionsContent: any, language: string): Promise<Array<{question: string, description: string}>> {
@@ -235,7 +256,7 @@ Based on these sections:
 Introduction: "${sectionsContent.introduction}"
 Artistic Features: "${JSON.stringify(sectionsContent.artistic_features)}"
 Historical Context: "${sectionsContent.historical_significance}"
-Cultural Background: "${sectionsContent.cultural_background}"
+Cultural Stories: "${JSON.stringify(sectionsContent.cultural_stories)}"
 
 Generate short, concise follow-up questions (maximum 8-10 words each) that build directly from the specific content covered in these sections.
 
@@ -300,11 +321,11 @@ export async function generateDunhuangResponse(
     const [
       artistic_features,
       historical_significance,
-      cultural_background
+      cultural_stories
     ] = await Promise.all([
       generateArtisticFeatures(introduction, language),
       generateHistoricalSignificance(introduction, language),
-      generateCulturalBackground(introduction, language)
+      generateCulturalStories(introduction, language)
     ]);
 
     // Finally generate follow-up questions based on all sections
@@ -312,7 +333,7 @@ export async function generateDunhuangResponse(
       introduction,
       artistic_features,
       historical_significance,
-      cultural_background
+      cultural_stories
     };
     
     const follow_up_questions = await generateFollowUpQuestions(sectionsContent, language);
@@ -321,7 +342,7 @@ export async function generateDunhuangResponse(
       introduction: introduction || "Welcome to exploring Dunhuang culture.",
       artistic_features: Array.isArray(artistic_features) ? artistic_features : [],
       historical_significance: historical_significance || "Historical context will be provided.",
-      cultural_background: cultural_background || "Cultural context will be provided.",
+      cultural_stories: Array.isArray(cultural_stories) ? cultural_stories : [],
       follow_up_questions: Array.isArray(follow_up_questions) ? follow_up_questions : []
     };
 

@@ -10,13 +10,18 @@ export interface StructuredResponse {
   introduction: string;
   artistic_features: ArtisticFeature[];
   historical_significance: string;
-  cultural_background: string;
+  cultural_stories: CulturalStory[];
   follow_up_questions: FollowUpQuestion[];
 }
 
 export interface ArtisticFeature {
   title: string;
   description: string;
+}
+
+export interface CulturalStory {
+  title: string;
+  story: string;
 }
 
 export interface FollowUpQuestion {
