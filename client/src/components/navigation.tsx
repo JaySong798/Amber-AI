@@ -3,22 +3,19 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useLanguage } from "@/contexts/language-context";
 import logoPath from "@assets/logo_1753228482637.png";
 
-interface NavigationProps {
-  language: string;
-  setLanguage: (language: string) => void;
-}
-
-export function Navigation({ language, setLanguage }: NavigationProps) {
+export function Navigation() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
 
   const isActive = (path: string) => location === path;
 
   const navigationItems = [
     { path: "/", label: "Home", labelCn: "首页" },
-    { path: "/about", label: "About the Project", labelCn: "关于��目" },
+    { path: "/about", label: "About the Project", labelCn: "关于项目" },
     { path: "/chat", label: "Amber AI", labelCn: "琥珀AI" },
     { path: "/explore", label: "Explore Dunhuang", labelCn: "探索敦煌" },
   ];
