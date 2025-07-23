@@ -206,12 +206,7 @@ export default function Landing() {
         </div>
       </main>
 
-      <style jsx>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.8; transform: scale(1.2); }
-        }
-      `}</style>
+
     </div>
   );
 }
