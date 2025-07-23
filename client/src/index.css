@@ -73,8 +73,9 @@
 
 /* Modern Card-Based Response Layout */
 .response-introduction {
-  background: var(--yellow-orange-500);
-  color: white;
+  background: white;
+  color: black;
+  border: 3px solid var(--dark-turquoise-500);
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -83,7 +84,8 @@
 
 .response-artistic-features {
   background: white;
-  border: 1px solid var(--neutral-200);
+  color: black;
+  border: 3px solid var(--dark-turquoise-500);
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -91,8 +93,9 @@
 }
 
 .response-historical-significance {
-  background: var(--dark-turquoise-500);
-  color: white;
+  background: white;
+  color: black;
+  border: 3px solid var(--dark-turquoise-500);
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -101,7 +104,8 @@
 
 .response-cultural-background {
   background: white;
-  border: 1px solid var(--neutral-200);
+  color: black;
+  border: 3px solid var(--dark-turquoise-500);
   border-radius: 0.5rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -109,7 +113,9 @@
 }
 
 .response-follow-up-questions {
-  background: var(--neutral-100);
+  background: white;
+  color: black;
+  border: 3px solid var(--dark-turquoise-500);
   border-radius: 0.5rem;
   padding: 1.25rem;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
@@ -146,24 +152,27 @@
 /* Section-specific styling */
 .response-introduction .response-section-icon,
 .response-introduction .response-section-title {
-  color: white;
+  color: var(--dark-turquoise-700);
 }
 
 .response-historical-significance .response-section-icon,
 .response-historical-significance .response-section-title {
-  color: white;
+  color: var(--dark-turquoise-700);
 }
 
-.response-artistic-features .response-section-icon {
-  color: var(--dark-turquoise-600);
+.response-artistic-features .response-section-icon,
+.response-artistic-features .response-section-title {
+  color: var(--dark-turquoise-700);
 }
 
-.response-cultural-background .response-section-icon {
-  color: var(--yellow-orange-600);
+.response-cultural-background .response-section-icon,
+.response-cultural-background .response-section-title {
+  color: var(--dark-turquoise-700);
 }
 
-.response-follow-up-questions .response-section-icon {
-  color: var(--neutral-600);
+.response-follow-up-questions .response-section-icon,
+.response-follow-up-questions .response-section-title {
+  color: var(--dark-turquoise-700);
 }
 
 .dark {

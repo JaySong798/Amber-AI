@@ -98,9 +98,9 @@ function StructuredResponseComponent({
           <div className="response-section-content">
             <div className="space-y-3">
               {response.artistic_features.map((feature, index) => (
-                <div key={index} className="bg-neutral-50 rounded p-3">
-                  <h5 className="font-medium text-sm mb-1 text-dark-turquoise-700">{feature.title}</h5>
-                  <p className="text-xs text-neutral-600 break-words">{feature.description}</p>
+                <div key={index} className="bg-white border-2 border-dark-turquoise-400 rounded p-3">
+                  <h5 className="font-medium text-sm mb-1 text-black">{feature.title}</h5>
+                  <p className="text-xs text-black break-words">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -143,10 +143,10 @@ function StructuredResponseComponent({
                 <button
                   key={index}
                   onClick={() => onQuestionClick(item.question)}
-                  className="text-left p-3 bg-white border border-neutral-200 rounded hover:bg-neutral-50 hover:border-neutral-300 transition-all duration-150 text-sm"
+                  className="text-left p-3 bg-white border-2 border-dark-turquoise-400 rounded hover:bg-neutral-50 hover:border-dark-turquoise-500 transition-all duration-150 text-sm"
                 >
-                  <div className="font-medium text-neutral-800 mb-1">{item.question}</div>
-                  <div className="text-xs text-neutral-500">{item.description}</div>
+                  <div className="font-medium text-black mb-1">{item.question}</div>
+                  <div className="text-xs text-black">{item.description}</div>
                 </button>
               ))}
             </div>
