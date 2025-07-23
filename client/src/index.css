@@ -268,8 +268,23 @@
 }
 
 @layer components {
+  .dunhuang-pattern {
+    background-image:
+      radial-gradient(circle at 25% 25%, hsl(var(--buddha-gold-400) / 0.1) 3px, transparent 3px),
+      radial-gradient(circle at 75% 75%, hsl(var(--seal-red-400) / 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 50% 50%, hsl(var(--cave-turquoise-400) / 0.06) 1px, transparent 1px);
+    background-size: 60px 60px, 40px 40px, 25px 25px;
+  }
+
+  .cave-texture {
+    background-image:
+      linear-gradient(135deg, hsl(var(--paper-beige-200) / 0.4) 25%, transparent 25%),
+      linear-gradient(-135deg, hsl(var(--buddha-gold-100) / 0.3) 25%, transparent 25%);
+    background-size: 30px 30px;
+  }
+
   .tang-imperial-pattern {
-    background-image: 
+    background-image:
       radial-gradient(circle at 25% 25%, hsl(42, 100%, 55%, 0.08) 3px, transparent 3px),
       radial-gradient(circle at 75% 75%, hsl(0, 80%, 50%, 0.06) 2px, transparent 2px),
       radial-gradient(circle at 50% 50%, hsl(30, 60%, 40%, 0.04) 1px, transparent 1px);
