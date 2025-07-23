@@ -61,6 +61,46 @@
   --neutral-800: hsl(222, 25%, 12%);
   --neutral-900: hsl(222, 30%, 8%);
 
+  /* Dunhuang Theme Colors */
+  --seal-red-50: hsl(0, 80%, 95%);
+  --seal-red-100: hsl(0, 80%, 90%);
+  --seal-red-200: hsl(0, 80%, 80%);
+  --seal-red-300: hsl(0, 80%, 70%);
+  --seal-red-400: hsl(0, 80%, 60%);
+  --seal-red-500: hsl(0, 80%, 50%);
+  --seal-red-600: hsl(0, 80%, 40%);
+  --seal-red-700: hsl(0, 80%, 30%);
+  --seal-red-800: hsl(0, 80%, 20%);
+  --seal-red-900: hsl(0, 80%, 15%);
+
+  --buddha-gold-50: hsl(45, 90%, 95%);
+  --buddha-gold-100: hsl(45, 90%, 88%);
+  --buddha-gold-200: hsl(45, 85%, 80%);
+  --buddha-gold-300: hsl(45, 80%, 70%);
+  --buddha-gold-400: hsl(45, 75%, 60%);
+  --buddha-gold-500: hsl(45, 80%, 50%);
+  --buddha-gold-600: hsl(45, 85%, 40%);
+  --buddha-gold-700: hsl(45, 90%, 30%);
+  --buddha-gold-800: hsl(45, 95%, 20%);
+  --buddha-gold-900: hsl(45, 100%, 15%);
+
+  --cave-turquoise-50: hsl(180, 70%, 95%);
+  --cave-turquoise-100: hsl(180, 70%, 88%);
+  --cave-turquoise-200: hsl(180, 70%, 80%);
+  --cave-turquoise-300: hsl(180, 70%, 70%);
+  --cave-turquoise-400: hsl(180, 70%, 50%);
+  --cave-turquoise-500: hsl(180, 70%, 35%);
+  --cave-turquoise-600: hsl(180, 70%, 25%);
+  --cave-turquoise-700: hsl(180, 70%, 18%);
+  --cave-turquoise-800: hsl(180, 70%, 12%);
+  --cave-turquoise-900: hsl(180, 70%, 8%);
+
+  --ink-black: hsl(0, 0%, 8%);
+  --paper-beige-50: hsl(40, 30%, 98%);
+  --paper-beige-100: hsl(40, 25%, 95%);
+  --paper-beige-200: hsl(40, 20%, 90%);
+  --paper-beige-300: hsl(40, 15%, 85%);
+
   /* Legacy color mappings for compatibility */
   --turquoise-blue-50: var(--dark-turquoise-50);
   --turquoise-blue-100: var(--dark-turquoise-100);
