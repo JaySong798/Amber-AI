@@ -10,6 +10,7 @@ export interface StructuredResponse {
   introduction: string;
   artistic_features: ArtisticFeature[];
   historical_significance: string;
+  cultural_context: string;
   cultural_stories: CulturalStory[];
   follow_up_questions: FollowUpQuestion[];
 }

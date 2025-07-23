@@ -12,6 +12,7 @@ export const chatMessageSchema = z.object({
       description: z.string()
     })),
     historical_significance: z.string(),
+    cultural_context: z.string(),
     cultural_stories: z.array(z.object({
       title: z.string(),
       story: z.string()
@@ -38,6 +39,7 @@ export const chatResponseSchema = z.object({
       description: z.string()
     })),
     historical_significance: z.string(),
+    cultural_context: z.string(),
     cultural_stories: z.array(z.object({
       title: z.string(),
       story: z.string()
@@ -52,6 +54,7 @@ export const chatResponseSchema = z.object({
 export interface StructuredResponse {
   introduction: string;
   artistic_features: Array<{title: string, description: string}>;
+  cultural_context: string;
   cultural_stories: Array<{title: string, story: string}>;
   historical_significance: string;
   follow_up_questions: Array<{question: string}>;

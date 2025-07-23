@@ -12,6 +12,7 @@ export interface DunhuangResponse {
     description: string;
   }>;
   historical_significance: string;
+  cultural_context: string;
   cultural_stories: Array<{
     title: string;
     story: string;
@@ -190,23 +191,29 @@ Provide only the historical significance text (no JSON, no additional formatting
   return response.choices[0].message.content || "";
 }
 
-async function generateCulturalStories(introduction: string, language: string): Promise<Array<{title: string, story: string}>> {
+async function generateCulturalContent(introduction: string, language: string): Promise<{context: string, stories: Array<{title: string, story: string}>}> {
   const prompt = `${DUNHUANG_STYLE_GUIDE}
 
 Based on this introduction: "${introduction}"
 
-Generate exactly 3 cultural stories related to the topic, each as a separate tale, mythology, or folktale from Buddhist culture or Chinese folklore.
+Generate both cultural context and 3 cultural stories related to the topic.
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 85 words total across all 3 stories (part of 500 word total limit)
-- Each story should be ~28 words maximum
-- Focus on tales, mythologies, folktales from Buddhist culture or Chinese folklore
-- Each story must have a distinct title and narrative
+- MAXIMUM 185 words total (original 85 + additional 100 words, part of 600 word total limit)
+- Cultural context: ~80 words providing spiritual and religious background
+- 3 Cultural stories: ~35 words each (~105 words total for all stories)
+- Focus on Buddhist culture, Chinese folklore, and spiritual traditions
 - Ensure JSON is properly formatted and complete
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Create 3 distinct cultural stories:
+CULTURAL CONTEXT should cover:
+- Buddhist teachings and spiritual significance
+- Religious practices and ceremonial importance
+- Cultural traditions and spiritual heritage
+- Symbolic meanings and sacred narratives
+
+3 CULTURAL STORIES should include:
 - Buddhist legends and spiritual tales
 - Chinese folktales and mythologies
 - Cultural legends connected to Dunhuang or the topic
@@ -214,10 +221,11 @@ Create 3 distinct cultural stories:
 - Tales of cultural heroes and wisdom
 
 Each story should be a complete mini-narrative with beginning, middle, and end.
-End each story with a concluding sentence that captures the story's essence with a full stop.
+End cultural context and each story with a concluding sentence with a full stop.
 
 Provide a JSON object with this exact format (ensure complete, valid JSON):
 {
+  "context": "Cultural and spiritual background with concluding sentence.",
   "stories": [
     {"title": "Story Title 1", "story": "Complete cultural story or tale with concluding sentence."},
     {"title": "Story Title 2", "story": "Complete cultural story or tale with concluding sentence."},
@@ -230,22 +238,26 @@ Provide a JSON object with this exact format (ensure complete, valid JSON):
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" },
     temperature: 0.7,
-    max_tokens: 250, // ~85 words
+    max_tokens: 555, // ~185 words
   });
 
   const content = response.choices[0].message.content;
-  if (!content) return [];
+  if (!content) return { context: "", stories: [] };
   
   try {
     const parsed = JSON.parse(content);
-    return parsed.stories || [];
+    return {
+      context: parsed.context || "",
+      stories: parsed.stories || []
+    };
   } catch (error) {
-    console.error("Error parsing cultural stories JSON:", error);
+    console.error("Error parsing cultural content JSON:", error);
     console.error("Raw content:", content);
     // Return fallback structure if JSON parsing fails
-    return [
-      { title: "Cultural Tales", story: "Cultural stories will be displayed here." }
-    ];
+    return {
+      context: "Cultural context will be displayed here.",
+      stories: [{ title: "Cultural Tales", story: "Cultural stories will be displayed here." }]
+    };
   }
 }
 
@@ -256,7 +268,7 @@ Based on these sections:
 Introduction: "${sectionsContent.introduction}"
 Artistic Features: "${JSON.stringify(sectionsContent.artistic_features)}"
 Historical Context: "${sectionsContent.historical_significance}"
-Cultural Stories: "${JSON.stringify(sectionsContent.cultural_stories)}"
+Cultural Content: "${JSON.stringify(sectionsContent.cultural_content)}"
 
 Generate short, concise follow-up questions (maximum 8-10 words each) that build directly from the specific content covered in these sections.
 
@@ -310,9 +322,9 @@ export async function generateDunhuangResponse(
   language: string = "en"
 ): Promise<DunhuangResponse> {
   try {
-    // CRITICAL: Entire response must stay under 500 words total (1500 tokens ÷ 3)
-    // Introduction: ~50 words, Artistic: ~135 words, Historical: ~85 words, Cultural: ~85 words, Questions: ~65 words
-    console.log("Generating response with 500 word limit for:", userMessage);
+    // CRITICAL: Entire response must stay under 600 words total (1800 tokens ÷ 3)
+    // Introduction: ~50 words, Artistic: ~135 words, Historical: ~85 words, Cultural: ~185 words (context + stories), Questions: ~65 words
+    console.log("Generating response with 600 word limit for:", userMessage);
     
     // First generate the introduction
     const introduction = await generateIntroduction(userMessage, language);
@@ -321,11 +333,11 @@ export async function generateDunhuangResponse(
     const [
       artistic_features,
       historical_significance,
-      cultural_stories
+      cultural_content
     ] = await Promise.all([
       generateArtisticFeatures(introduction, language),
       generateHistoricalSignificance(introduction, language),
-      generateCulturalStories(introduction, language)
+      generateCulturalContent(introduction, language)
     ]);
 
     // Finally generate follow-up questions based on all sections
@@ -333,7 +345,7 @@ export async function generateDunhuangResponse(
       introduction,
       artistic_features,
       historical_significance,
-      cultural_stories
+      cultural_content
     };
     
     const follow_up_questions = await generateFollowUpQuestions(sectionsContent, language);
@@ -342,11 +354,12 @@ export async function generateDunhuangResponse(
       introduction: introduction || "Welcome to exploring Dunhuang culture.",
       artistic_features: Array.isArray(artistic_features) ? artistic_features : [],
       historical_significance: historical_significance || "Historical context will be provided.",
-      cultural_stories: Array.isArray(cultural_stories) ? cultural_stories : [],
+      cultural_context: cultural_content.context || "Cultural context will be provided.",
+      cultural_stories: Array.isArray(cultural_content.stories) ? cultural_content.stories : [],
       follow_up_questions: Array.isArray(follow_up_questions) ? follow_up_questions : []
     };
 
-    console.log("Response generated within 1500 token limit");
+    console.log("Response generated within 1800 token limit");
     return normalizedResponse;
   } catch (error) {
     console.error("OpenAI API error:", error);
