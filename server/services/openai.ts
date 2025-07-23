@@ -47,26 +47,30 @@ CULTURAL IMMERSION:
 async function generateIntroduction(userMessage: string, language: string): Promise<string> {
   const prompt = `${DUNHUANG_STYLE_GUIDE}
 
-Generate a captivating introduction that serves as a gateway into the world of Dunhuang culture. This should be a comprehensive summary that previews the artistic wonders, historical journey, and cultural richness that will be explored in detail later.
+Generate a concise introduction that serves as a gateway into the world of Dunhuang culture. 
+
+CRITICAL REQUIREMENTS:
+- MAXIMUM 3-5 sentences only
+- Stay under 200 tokens
+- Make each sentence vivid and impactful
+- Capture the essence without lengthy descriptions
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
-Create an engaging overview that:
+Create a brief but engaging overview that:
 - Paints a vivid picture of the topic's significance in Dunhuang's story
-- Summarizes the artistic elements with descriptive, visual language
-- Sets the historical scene with rich context and atmosphere
-- Introduces cultural concepts through accessible storytelling
-- Defines key terms naturally within engaging descriptions
+- Introduces the key concept with descriptive language
+- Sets the scene with rich atmosphere in minimal words
 
 User's question: ${userMessage}
 
-Write as if guiding a curious traveler into the magical world of ancient Dunhuang. Provide only the introduction text.`;
+Write as if providing a captivating but brief introduction. Maximum 3-5 sentences only.`;
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 350,
+    max_tokens: 200,
   });
 
   return response.choices[0].message.content || "";
@@ -77,7 +81,13 @@ async function generateArtisticFeatures(introduction: string, language: string):
 
 Based on this introduction: "${introduction}"
 
-Generate ONLY artistic and visual details that expand on the artistic elements mentioned in the introduction. Focus exclusively on concrete visual elements, techniques, and artistic characteristics. Do not repeat general information about locations, time periods, or cultural background.
+Generate ONLY artistic and visual details that expand on the artistic elements mentioned in the introduction.
+
+CRITICAL REQUIREMENTS:
+- MAXIMUM 1000 tokens
+- Stay concise while being informative
+- Focus exclusively on concrete visual elements, techniques, and artistic characteristics
+- Do not repeat general information about locations, time periods, or cultural background
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
@@ -107,7 +117,7 @@ Provide a JSON object with this exact format:
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" },
     temperature: 0.7,
-    max_tokens: 700,
+    max_tokens: 600,
   });
 
   const content = response.choices[0].message.content;
@@ -127,7 +137,13 @@ async function generateHistoricalSignificance(introduction: string, language: st
 
 Based on this introduction: "${introduction}"
 
-Generate ONLY historical context and chronological details that expand on the historical elements mentioned in the introduction. Focus exclusively on dates, dynasties, events, and historical developments. Do not repeat artistic details, cultural practices, or general background information.
+Generate ONLY historical context and chronological details that expand on the historical elements mentioned in the introduction. 
+
+CRITICAL REQUIREMENTS:
+- MAXIMUM 1000 tokens
+- Stay concise while being informative
+- Focus exclusively on dates, dynasties, events, and historical developments
+- Do not repeat artistic details, cultural practices, or general background information
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
@@ -149,7 +165,7 @@ Provide only the historical significance text (no JSON, no additional formatting
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 500,
+    max_tokens: 600,
   });
 
   return response.choices[0].message.content || "";
@@ -160,7 +176,13 @@ async function generateCulturalBackground(introduction: string, language: string
 
 Based on this introduction: "${introduction}"
 
-Generate ONLY cultural and religious context that expands on the spiritual elements mentioned in the introduction. Focus exclusively on beliefs, practices, and spiritual meanings. Do not repeat historical dates, artistic techniques, or general background information.
+Generate ONLY cultural and religious context that expands on the spiritual elements mentioned in the introduction.
+
+CRITICAL REQUIREMENTS:
+- MAXIMUM 1000 tokens
+- Stay concise while being informative
+- Focus exclusively on beliefs, practices, and spiritual meanings
+- Do not repeat historical dates, artistic techniques, or general background information
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
@@ -183,7 +205,7 @@ Provide only the cultural background text (no JSON, no additional formatting).`;
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 500,
+    max_tokens: 600,
   });
 
   return response.choices[0].message.content || "";
@@ -199,6 +221,11 @@ Historical Context: "${sectionsContent.historical_significance}"
 Cultural Background: "${sectionsContent.cultural_background}"
 
 Generate short, concise follow-up questions (maximum 8-10 words each) that build directly from the specific content covered in these sections.
+
+CRITICAL REQUIREMENTS:
+- MAXIMUM 1000 tokens for this entire section
+- Each question maximum 8-10 words
+- Stay focused on specific content mentioned
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
