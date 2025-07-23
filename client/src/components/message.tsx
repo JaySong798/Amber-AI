@@ -45,8 +45,8 @@ export function Message({ message, onQuestionClick }: MessageProps) {
   return (
     <div className="chat-message">
       <div className="flex items-start space-x-3">
-        <div className="w-10 h-10 bg-amber-800 border-2 border-dark-turquoise-500 rounded flex items-center justify-center flex-shrink-0 shadow-sm">
-          <Bot className="w-5 h-5 text-white" />
+        <div className="w-10 h-10 bg-white border-2 border-dark-turquoise-500 rounded flex items-center justify-center flex-shrink-0 shadow-sm">
+          <Bot className="w-5 h-5 text-amber-800" />
         </div>
         <div className="flex-1">
           {structured ? (
