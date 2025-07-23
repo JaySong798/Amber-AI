@@ -1,4 +1,4 @@
-import { Bot, User, Info, Palette, Landmark, MessageSquare, MessageCircle } from "lucide-react";
+import { Bot, User, Info, Palette, History, MessageSquare, MessageCircle } from "lucide-react";
 import { ChatMessage, StructuredResponse } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 
@@ -88,57 +88,57 @@ function StructuredResponseComponent({
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {/* Artistic Features */}
-        <div className="response-artistic-features">
-          <div className="response-section-header">
-            <Palette className="response-section-icon" />
-            <h4 className="response-section-title">Artistic Features</h4>
-          </div>
-          <div className="response-section-content">
-            <div className="space-y-3">
-              {response.artistic_features.map((feature, index) => (
-                <div key={index} className="bg-white border-2 border-dark-turquoise-400 rounded p-3">
-                  <h5 className="font-medium text-sm mb-1 text-black">{feature.title}</h5>
-                  <p className="text-xs text-black break-words">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Cultural Context */}
-        <div className="response-cultural-background">
-          <div className="response-section-header">
-            <MessageSquare className="response-section-icon" />
-            <h4 className="response-section-title">Cultural Context</h4>
-          </div>
-          <div className="response-section-content">
-            <p className="break-words text-sm mb-4">{response.cultural_context}</p>
-            
-            <h5 className="font-medium text-sm mb-2 text-black">Cultural Stories</h5>
-            <div className="space-y-3">
-              {response.cultural_stories.map((story, index) => (
-                <div key={index} className="bg-white border-2 border-dark-turquoise-400 rounded p-3">
-                  <h6 className="font-medium text-sm mb-1 text-black">{story.title}</h6>
-                  <p className="text-xs text-black break-words">{story.story}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Historical Significance - Secondary Color Block */}
-      <div className="response-historical-significance">
+      {/* Artistic Features */}
+      <div className="response-visual-elements">
         <div className="response-section-header">
-          <Landmark className="response-section-icon" />
-          <h4 className="response-section-title">Historical Significance</h4>
+          <Palette className="response-section-icon" />
+          <h4 className="response-section-title">Visual Elements</h4>
         </div>
         <div className="response-section-content">
-          <p className="break-words">{response.historical_significance}</p>
+          <div className="space-y-3">
+            {response.artistic_features.map((feature, index) => (
+              <div key={index} className="bg-white border-2 border-dark-turquoise-400 rounded p-3">
+                <h5 className="font-medium text-sm mb-1 text-black">{feature.title}</h5>
+                <p className="text-xs text-black break-words">{feature.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Historical Significance */}
+      <div className="response-historical-timeline">
+        <div className="response-section-header">
+          <History className="response-section-icon" />
+          <h4 className="response-section-title">Historical Timeline</h4>
+        </div>
+        <div className="response-section-content">
+          <p className="break-words text-sm">{response.historical_significance}</p>
+        </div>
+      </div>
+
+      {/* Cultural Context */}
+      <div className="response-cultural-background">
+        <div className="response-section-header">
+          <MessageSquare className="response-section-icon" />
+          <h4 className="response-section-title">Cultural Context</h4>
+        </div>
+        <div className="response-section-content">
+          <p className="break-words text-sm mb-4">{response.cultural_context}</p>
+          
+          <h5 className="font-medium text-sm mb-2 text-black">Cultural Stories</h5>
+          <div className="space-y-3">
+            {response.cultural_stories.map((story, index) => (
+              <div key={index} className="bg-white border-2 border-dark-turquoise-400 rounded p-3">
+                <h6 className="font-medium text-sm mb-1 text-black">{story.title}</h6>
+                <p className="text-xs text-black break-words">{story.story}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+
 
       {/* Follow-up Questions */}
       {response.follow_up_questions.length > 0 && (
@@ -148,7 +148,7 @@ function StructuredResponseComponent({
             <h4 className="response-section-title">Explore More</h4>
           </div>
           <div className="response-section-content">
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="space-y-2">
               {response.follow_up_questions.map((item, index) => (
                 <button
                   key={index}
