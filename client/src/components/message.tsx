@@ -27,13 +27,13 @@ export function Message({ message, onQuestionClick }: MessageProps) {
       <div className="chat-message">
         <div className="flex items-start space-x-3 justify-end">
           <div className="flex-1 flex flex-col items-end">
-            <div className="bg-dark-turquoise-500 border-2 border-dark-turquoise-600 rounded p-3 max-w-sm shadow-sm">
-              <p className="text-sm text-white break-words leading-relaxed">{message.content}</p>
+            <div className="bg-white border-2 border-dark-turquoise-500 rounded p-3 max-w-sm shadow-sm">
+              <p className="text-sm text-black break-words leading-relaxed">{message.content}</p>
             </div>
-            <span className="text-xs text-dark-turquoise-600 mt-1 font-medium">You • {formatTime(message.timestamp)}</span>
+            <span className="text-xs text-black mt-1 font-medium">You • {formatTime(message.timestamp)}</span>
           </div>
-          <div className="w-10 h-10 bg-dark-turquoise-500 border-2 border-dark-turquoise-600 rounded flex items-center justify-center flex-shrink-0 shadow-sm">
-            <User className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 bg-white border-2 border-dark-turquoise-500 rounded flex items-center justify-center flex-shrink-0 shadow-sm">
+            <User className="w-5 h-5 text-dark-turquoise-600" />
           </div>
         </div>
       </div>
@@ -45,8 +45,8 @@ export function Message({ message, onQuestionClick }: MessageProps) {
   return (
     <div className="chat-message">
       <div className="flex items-start space-x-3">
-        <div className="w-10 h-10 bg-dark-turquoise-500 border-2 border-dark-turquoise-600 rounded flex items-center justify-center flex-shrink-0 shadow-sm">
-          <Bot className="w-5 h-5 text-white" />
+        <div className="w-10 h-10 bg-white border-2 border-dark-turquoise-500 rounded flex items-center justify-center flex-shrink-0 shadow-sm">
+          <Bot className="w-5 h-5 text-dark-turquoise-600" />
         </div>
         <div className="flex-1">
           {structured ? (
@@ -56,10 +56,10 @@ export function Message({ message, onQuestionClick }: MessageProps) {
             />
           ) : (
             <div className="bg-white border-2 border-dark-turquoise-500 rounded p-3 shadow-sm">
-              <p className="text-sm text-dark-turquoise-700 break-words leading-relaxed">{message.content}</p>
+              <p className="text-sm text-black break-words leading-relaxed">{message.content}</p>
             </div>
           )}
-          <span className="text-xs text-dark-turquoise-600 mt-2 block font-medium">
+          <span className="text-xs text-black mt-2 block font-medium">
             Amber AI • {formatTime(message.timestamp)}
           </span>
         </div>
