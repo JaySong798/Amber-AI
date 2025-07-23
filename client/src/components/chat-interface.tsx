@@ -99,29 +99,6 @@ export function ChatInterface({ messages, setMessages }: ChatInterfaceProps) {
 
   return (
     <main className="flex-1 flex flex-col bg-neutral-50">
-      {/* Chat Header */}
-      <div className="border-b border-neutral-200 bg-white shadow-sm" style={{ padding: '24px 24px 26px' }}>
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <img 
-              src={logoPath} 
-              alt="Amber AI Logo" 
-              className="w-12 h-12 object-contain"
-            />
-            <div>
-              <h1 className="text-xl font-bold text-neutral-800">Amber AI</h1>
-              <p className="text-sm text-neutral-600">Dunhuang Cultural Explorer</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-3">
-            <div className="hidden md:flex items-center text-sm text-neutral-600 bg-neutral-100 px-3 py-1.5 rounded-lg">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-              Online
-            </div>
-          </div>
-        </div>
-      </div>
-      
       {/* Chat Messages Area */}
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto p-6 space-y-6">
