@@ -3,10 +3,11 @@ import { Link } from "wouter";
 import { Play, Pause, Volume2, VolumeX, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/navigation";
+import { useLanguage } from "@/contexts/language-context";
 import logoPath from "@assets/logo_1753228482637.png";
 
 export default function Landing() {
-  const [language, setLanguage] = useState("en");
+  const { language } = useLanguage();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
@@ -45,7 +46,7 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-paper-beige-50 via-paper-beige-100 to-buddha-gold-50">
-      <Navigation language={language} setLanguage={setLanguage} />
+      <Navigation />
       
       {/* Floating stars background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -179,7 +180,7 @@ export default function Landing() {
                 </h3>
                 <p className="text-neutral-600">
                   {language === "zh" 
-                    ? "发现敦煌壁画中的天女与神话艺术" 
+                    ? "发现敦煌壁画中的天女与神话��术" 
                     : "Discover celestial beings and mythological art in Dunhuang murals"
                   }
                 </p>
