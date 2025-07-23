@@ -85,10 +85,11 @@ Based on this introduction: "${introduction}"
 Generate ONLY artistic and visual details that expand on the artistic elements mentioned in the introduction.
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 300 tokens (part of 1500 token total limit)
+- MAXIMUM 400 tokens (part of 1500 token total limit)
 - Stay concise while being informative
 - Focus exclusively on concrete visual elements, techniques, and artistic characteristics
 - Do not repeat general information about locations, time periods, or cultural background
+- Ensure JSON is properly formatted and complete
 
 IMPORTANT: Respond in ${language === 'zh' ? 'Chinese' : 'English'}.
 
@@ -105,12 +106,12 @@ Avoid mentioning: historical periods, dynasties, cultural background, religious 
 Write as if examining the artwork up close, describing only what the eyes can see.
 End each description with a concluding sentence that summarizes the artistic technique with a full stop.
 
-Provide a JSON object with this exact format:
+Provide a JSON object with this exact format (ensure complete, valid JSON):
 {
   "features": [
-    {"title": "Specific artistic technique", "description": "Pure visual description"},
-    {"title": "Specific artistic technique", "description": "Pure visual description"},
-    {"title": "Specific artistic technique", "description": "Pure visual description"}
+    {"title": "Specific artistic technique", "description": "Pure visual description with concluding summary sentence."},
+    {"title": "Specific artistic technique", "description": "Pure visual description with concluding summary sentence."},
+    {"title": "Specific artistic technique", "description": "Pure visual description with concluding summary sentence."}
   ]
 }`;
 
@@ -119,7 +120,7 @@ Provide a JSON object with this exact format:
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" },
     temperature: 0.7,
-    max_tokens: 300,
+    max_tokens: 400,
   });
 
   const content = response.choices[0].message.content;
@@ -130,7 +131,11 @@ Provide a JSON object with this exact format:
     return parsed.features || [];
   } catch (error) {
     console.error("Error parsing artistic features JSON:", error);
-    return [];
+    console.error("Raw content:", content);
+    // Return fallback structure if JSON parsing fails
+    return [
+      { title: "Visual Elements", description: "Artistic features will be displayed here." }
+    ];
   }
 }
 
@@ -142,7 +147,7 @@ Based on this introduction: "${introduction}"
 Generate ONLY historical context and chronological details that expand on the historical elements mentioned in the introduction. 
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 300 tokens (part of 1500 token total limit)
+- MAXIMUM 250 tokens (part of 1500 token total limit)
 - Stay concise while being informative
 - Focus exclusively on dates, dynasties, events, and historical developments
 - Do not repeat artistic details, cultural practices, or general background information
@@ -168,7 +173,7 @@ Provide only the historical significance text (no JSON, no additional formatting
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 300,
+    max_tokens: 250,
   });
 
   return response.choices[0].message.content || "";
@@ -182,7 +187,7 @@ Based on this introduction: "${introduction}"
 Generate ONLY cultural and religious context that expands on the spiritual elements mentioned in the introduction.
 
 CRITICAL REQUIREMENTS:
-- MAXIMUM 300 tokens (part of 1500 token total limit)
+- MAXIMUM 250 tokens (part of 1500 token total limit)
 - Stay concise while being informative
 - Focus exclusively on beliefs, practices, and spiritual meanings
 - Do not repeat historical dates, artistic techniques, or general background information
@@ -209,7 +214,7 @@ Provide only the cultural background text (no JSON, no additional formatting).`;
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
-    max_tokens: 300,
+    max_tokens: 250,
   });
 
   return response.choices[0].message.content || "";
@@ -277,7 +282,7 @@ export async function generateDunhuangResponse(
 ): Promise<DunhuangResponse> {
   try {
     // CRITICAL: Entire response must stay under 1500 tokens total
-    // Introduction: ~150 tokens, Other sections: ~250 tokens each, Questions: ~200 tokens
+    // Introduction: ~150 tokens, Artistic: ~400 tokens, Historical: ~250 tokens, Cultural: ~250 tokens, Questions: ~200 tokens
     console.log("Generating response with 1500 token limit for:", userMessage);
     
     // First generate the introduction
