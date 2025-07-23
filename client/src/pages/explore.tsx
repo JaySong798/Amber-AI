@@ -1,13 +1,13 @@
-import { useState } from "react";
 import { Link } from "wouter";
 import { ExternalLink, Play, BookOpen, Music, Globe, ArrowRight } from "lucide-react";
 import { Navigation } from "@/components/navigation";
+import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export default function Explore() {
-  const [language, setLanguage] = useState("en");
+  const { language } = useLanguage();
 
   const content = {
     en: {
@@ -251,7 +251,7 @@ export default function Explore() {
             type: "档案"
           },
           {
-            name: "敦煌电子游览",
+            name: "敦��电子游览",
             description: "洞窟的虚拟现实探索",
             url: "https://e-dunhuang.com",
             type: "VR游览"
@@ -302,7 +302,7 @@ export default function Explore() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-paper-beige-50 to-cave-turquoise-50">
-      <Navigation language={language} setLanguage={setLanguage} />
+      <Navigation />
       
       <main className="pt-8 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
