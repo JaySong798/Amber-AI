@@ -64,7 +64,8 @@ Create a brief but engaging overview that:
 
 User's question: ${userMessage}
 
-Write as if providing a captivating but brief introduction. Maximum 3-5 sentences only.`;
+Write as if providing a captivating but brief introduction. Maximum 3-5 sentences only.
+End with a concluding sentence that summarizes the introduction with a full stop.`;
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -102,6 +103,7 @@ Focus ONLY on visual artistic details:
 Avoid mentioning: historical periods, dynasties, cultural background, religious context, or general introductions.
 
 Write as if examining the artwork up close, describing only what the eyes can see.
+End each description with a concluding sentence that summarizes the artistic technique with a full stop.
 
 Provide a JSON object with this exact format:
 {
@@ -158,6 +160,7 @@ Focus ONLY on historical facts and chronology:
 Avoid mentioning: artistic techniques, visual descriptions, religious practices, or cultural meanings.
 
 Write as if creating a historical timeline, focusing purely on when, who, and what happened.
+End with a concluding sentence that summarizes the historical significance with a full stop.
 
 Provide only the historical significance text (no JSON, no additional formatting).`;
 
@@ -198,6 +201,7 @@ Focus ONLY on cultural and spiritual aspects:
 Avoid mentioning: specific dates, dynasties, artistic techniques, or visual descriptions.
 
 Write as if explaining the spiritual heart and soul behind the subject, focusing purely on beliefs and practices.
+End with a concluding sentence that summarizes the cultural story with a full stop.
 
 Provide only the cultural background text (no JSON, no additional formatting).`;
 
@@ -236,6 +240,7 @@ Create 3-4 brief questions covering:
 - One comparative or related exploration question
 
 Keep questions short and specific. Descriptions should be equally concise (maximum 15 words).
+End each description with a concluding phrase that summarizes the exploration opportunity with a full stop.
 
 Provide a JSON object with this exact format:
 {
